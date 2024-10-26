@@ -1,6 +1,11 @@
 <script setup>
-import {ref} from "vue";
-const isAuthenticated = ref(false)
+import {computed, ref} from "vue";
+import {UserStore} from "@/stores/UserStore.js";
+const store = UserStore()
+const logOut = () => {
+  localStorage.removeItem('token')
+  store.logOut()
+}
 </script>
 
 <template>
@@ -20,12 +25,12 @@ const isAuthenticated = ref(false)
         <li><a href="#" class="nav-link px-2">About</a></li>
       </ul>-->
 
-      <div v-if="!isAuthenticated" class="col-md-3 text-end">
+      <div v-if="!store.isAuthenticated" class="col-md-3 text-end">
         <router-link to="./login" type="button" class="btn btn-outline-primary me-2">Daxil ol</router-link>
         <a type="button" class="btn btn-primary">Qeydiyyatdan keç</a>
       </div>
       <div v-else class="col-md-3 text-end">
-        <a type="button" class="btn btn-outline-primary me-2">Logout</a>
+        <button @click="logOut" type="button" class="btn btn-outline-primary me-2">Logout</button>
       </div>
     </header>
   </div>

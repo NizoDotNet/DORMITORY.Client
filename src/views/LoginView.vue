@@ -1,20 +1,24 @@
 <script setup>
 import {reactive} from "vue";
 import axios from "axios";
+import {UserStore} from "@/stores/UserStore.js";
 
 const loginData = reactive({
   email: "",
   password: ""
 })
 
+const store = UserStore()
 const login = async () => {
   try{
     const res = await axios.post("https://localhost:7106/login", {
       "email": loginData.email,
       "password": loginData.password
     })
-    if(res.status == 200){
+    if(res.status === 200){
       localStorage.setItem("token",res.data.jwtToken)
+      await store.getUser()
+
     }
   } catch (ex) {
     console.log(ex)
