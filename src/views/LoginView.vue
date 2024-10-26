@@ -9,20 +9,16 @@ const loginData = reactive({
 
 const login = async () => {
   try{
-    const res = await fetch("https://localhost:7106/login", {
-      body: JSON.stringify({
-        email: loginData.email,
-        password: loginData.password
-      }),
-      method: "POST"
+    const res = await axios.post("https://localhost:7106/login", {
+      "email": loginData.email,
+      "password": loginData.password
     })
-    const resposneData = await res.json()
-    console.log(resposneData)
-
+    if(res.status == 200){
+      localStorage.setItem("token",res.data.jwtToken)
+    }
   } catch (ex) {
     console.log(ex)
   }
-  console.log(loginData)
 }
 
 </script>
@@ -36,7 +32,7 @@ const login = async () => {
       </div>
       <div class="mb-3">
         <label class="form-label"></label>
-        <input v-model="loginData.password" type="password" class="form-control-lg" placeholder=""  >
+        <input v-model="loginData.password" type="password" class="form-control-lg" placeholder="şifrə"  >
       </div>
       <button class="btn btn-primary">
         Daxil ol
