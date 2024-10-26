@@ -1,12 +1,16 @@
 <script setup>
 import {UserStore} from "@/stores/UserStore.js";
-const userStore = new UserStore();
-const user = userStore.user;
+const store = UserStore();
 </script>
 
 <template>
 <div class="container">
-  {{user}}
+  <div v-if="store.isAuthenticated" class="user-information">
+    <p>{{store.user.firstname + " " + store.user.secondname}}</p>
+  </div>
+  <div v-else>
+    <router-link to="/login">Login</router-link>
+  </div>
 </div>
 </template>
 
