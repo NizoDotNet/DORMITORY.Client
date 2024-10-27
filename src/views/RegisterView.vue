@@ -39,7 +39,7 @@ const register = async () => {
   try {
     const res = await axios.post("/api/auth/register", registerData)
     if(res.status === 200) {
-      router.push('/login')
+      await router.push('/login')
     }
   }
   catch (err) {

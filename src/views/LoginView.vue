@@ -21,7 +21,7 @@ const login = async () => {
       localStorage.setItem("token",res.data.jwtToken)
       localStorage.setItem("refreshToken",res.data.refreshToken)
       await store.getUser()
-      router.push("/user")
+      await router.push("/user")
     }
   } catch (ex) {
       if(ex.response.status === 400) {

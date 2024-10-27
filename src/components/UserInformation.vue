@@ -1,19 +1,18 @@
 <script setup>
-defineProps({
+const props = defineProps({
   user: Object
 })
+import QR from "@/components/QR.vue";
 </script>
 
 <template>
 <div class="container">
   <div class="row">
     <div class="col">
-      <img src="../assets/noimage.jpg" width="128" height="128" alt="">
+      <img src="../assets/images/noimage.jpg" width="128" height="128" alt="">
     </div>
     <div class="col">
-      <div style="background-color: darkgrey; width: 128px; height: 128px" id="qr">
-
-      </div>
+      <QR :id="user.id" />
     </div>
   </div>
   <div class="row">
