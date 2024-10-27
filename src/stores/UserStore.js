@@ -14,7 +14,9 @@ export const UserStore = defineStore("userStore", () => {
         passportNo: "",
         fatherName: "",
         course: "",
-        code: ""
+        code: "",
+        phoneNumber: "",
+        reprimands: []
     })
     const isAuthenticated = ref(false)
     async function getUser(){
@@ -26,25 +28,18 @@ export const UserStore = defineStore("userStore", () => {
                     this.user = {...res.data}
                     this.isAuthenticated = true
                 }
-                /*else if(res.status === 401){
-                    console.log('not authenticated')
-                    this.isAuthenticated = false
-                    if(localStorage.getItem("refreshToken") !== null){
-                        console.log('sending refreshToken')
-                        const refreshTokenRes = await axios.post('/api/auth/refresh', {
-                            'refreshToken': localStorage.getItem("refreshToken")
-                        })
-                        if(refreshTokenRes.status === 200) {
-                            localStorage.setItem("token", refreshTokenRes.data)
-                        }
-                    }
-                }*/
                 else {
                     console.log(res)
                 }
             }
             catch (error) {
-                console.log('error in user-store while fetching data ' + error)
+                if(error.response.status === 401) {
+                    const r = await axios.post("/api/auth/refresh")
+                    if(r.status === 200) {
+                        this.user = {...r.data}
+                        this.isAuthenticated = true
+                    }
+                }
             }
         }
 

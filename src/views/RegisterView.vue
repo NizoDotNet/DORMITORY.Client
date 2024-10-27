@@ -1,6 +1,9 @@
 <script setup>
 import {onMounted, reactive, ref} from "vue";
 import axios from "axios";
+import {useRouter} from "vue-router";
+
+const router = useRouter()
 
 const specializations = ref([])
 const validations = ref([])
@@ -34,21 +37,10 @@ onMounted(async () => {
 
 const register = async () => {
   try {
-    const res = await axios.post("/api/auth/register", {
-      "firstname": registerData.firstname,
-      "secondname": registerData.secondname,
-      "email": registerData.email,
-      "password": registerData.password,
-      "fin": registerData.fin,
-      "passportNo": registerData.passportNo,
-      "phoneNumber": registerData.phoneNumber,
-      "dormitoryBlock": registerData.dormitoryBlock,
-      "dormitoryRoom": registerData.dormitoryRoom,
-      "fatherName": registerData.fatherName,
-      "specializationId": null,
-      "course": registerData.course,
-      "code": registerData.code
-    })
+    const res = await axios.post("/api/auth/register", registerData)
+    if(res.status === 200) {
+      router.push('/login')
+    }
   }
   catch (err) {
     if(err.response.status === 400) {

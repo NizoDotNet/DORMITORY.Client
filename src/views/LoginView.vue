@@ -1,5 +1,5 @@
 <script setup>
-import {reactive} from "vue";
+import {reactive, ref} from "vue";
 import axios from "axios";
 import {UserStore} from "@/stores/UserStore.js";
 import { useRouter } from "vue-router";
@@ -9,7 +9,7 @@ const loginData = reactive({
   email: "",
   password: ""
 })
-
+const message = ref()
 const store = UserStore()
 const login = async () => {
   try{
@@ -24,7 +24,9 @@ const login = async () => {
       router.push("/user")
     }
   } catch (ex) {
-    console.log(ex)
+      if(ex.response.status === 400) {
+        message.value = 'Şifrə və ya email səhvdir'
+      }
   }
 }
 
@@ -41,6 +43,12 @@ const login = async () => {
         <label class="form-label"></label>
         <input v-model="loginData.password" type="password" class="form-control-lg" placeholder="şifrə"  >
       </div>
+      <div class="mb-3">
+        <span class="text-danger">
+          {{message}}
+        </span>
+      </div>
+      <br>
       <button class="btn btn-primary">
         Daxil ol
       </button>
