@@ -13,7 +13,15 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  devServer: {
-    proxy: "https://localhost:7106"
-  }
+  server: {
+    port: 5173,
+    proxy: {
+      '/api': {
+        target: 'https://localhost:7106',
+        changeOrigin: true,
+        /*rewrite: (path) => path.replace(/^\/api/, ''),*/
+        secure: false
+      },
+    },
+  },
 })

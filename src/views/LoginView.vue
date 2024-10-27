@@ -35,7 +35,7 @@ const login = async () => {
     <form @submit.prevent="login">
       <div class="mb-3">
         <label class="form-label"></label>
-        <input v-model="loginData.email" type="email" class="form-control-lg" placeholder="example@gmail.com"  >
+        <input autocomplete="email" v-model="loginData.email" type="email" class="form-control-lg" placeholder="example@gmail.com"  >
       </div>
       <div class="mb-3">
         <label class="form-label"></label>
