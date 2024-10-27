@@ -3,7 +3,6 @@ import {computed, ref} from "vue";
 import {UserStore} from "@/stores/UserStore.js";
 const store = UserStore()
 const logOut = () => {
-  localStorage.removeItem('token')
   store.logOut()
 }
 </script>
@@ -27,7 +26,7 @@ const logOut = () => {
 
       <div v-if="!store.isAuthenticated" class="col-md-3 text-end">
         <router-link to="/login" type="button" class="btn btn-outline-primary me-2">Daxil ol</router-link>
-        <a type="button" class="btn btn-primary">Qeydiyyatdan keç</a>
+        <router-link to="/register" type="button" class="btn btn-primary">Qeydiyyatdan keç</router-link>
       </div>
       <div v-else class="col-md-3 text-end">
         <button @click="logOut" type="button" class="btn btn-outline-primary me-2">Logout</button>

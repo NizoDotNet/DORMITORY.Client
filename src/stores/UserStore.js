@@ -18,7 +18,7 @@ export const UserStore = defineStore("userStore", () => {
     })
     const isAuthenticated = ref(false)
     async function getUser(){
-        if(this.user.id === "" && localStorage.getItem('token') !== null)
+        if(this.user.id === "")
         {
             try {
                 const res = await axios.get("/api/auth/user")
@@ -50,20 +50,26 @@ export const UserStore = defineStore("userStore", () => {
 
     }
     function logOut() {
-        this.user = {
-            id: "",
-            firstName: "",
-            secondName: "",
-            email: "",
-            fin: "",
-            room: "",
-            block: "",
-            passportNo: "",
-            fatherName: "",
-            course: "",
-            code: ""
-        }
-        this.isAuthenticated = false
+        axios.post('/api/auth/logout')
+            .then(res => {
+                if(res.status === 200){
+                    this.user = {
+                        id: "",
+                        firstName: "",
+                        secondName: "",
+                        email: "",
+                        fin: "",
+                        room: "",
+                        block: "",
+                        passportNo: "",
+                        fatherName: "",
+                        course: "",
+                        code: ""
+                    }
+                    this.isAuthenticated = false
+                }
+            }).catch(err => console.log('error in logout ' + err));
+
     }
     return {user, isAuthenticated, getUser, logOut}
 })
