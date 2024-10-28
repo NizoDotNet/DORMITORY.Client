@@ -5,12 +5,14 @@ import {UserStore} from "@/stores/UserStore.js";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+const store = UserStore()
+
 const loginData = reactive({
   email: "",
   password: ""
 })
 const message = ref()
-const store = UserStore()
+
 const login = async () => {
   store.isLoading = true
   try{
