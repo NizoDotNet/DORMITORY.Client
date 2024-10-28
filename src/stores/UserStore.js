@@ -42,9 +42,10 @@ export const UserStore = defineStore("userStore", () => {
                         this.isAuthenticated = true
                     }
                 }
+            } finally {
+                isLoading.value = false
             }
         }
-        isLoading.value = false
     }
     function logOut() {
         isLoading.value = true
@@ -66,8 +67,10 @@ export const UserStore = defineStore("userStore", () => {
                     }
                     this.isAuthenticated = false
                 }
-            }).catch(err => console.log('error in logout ' + err));
-        isLoading.value = false
+            }).catch(err => console.log('error in logout ' + err))
+            .finally(c => {
+                isLoading.value = false
+            });
     }
     return {user, isLoading, isAuthenticated, getUser, logOut}
 })

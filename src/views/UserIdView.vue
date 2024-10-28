@@ -26,6 +26,7 @@ onMounted(async () => {
       await  router.push('/user')
     }
   }
+
 })
 </script>
 

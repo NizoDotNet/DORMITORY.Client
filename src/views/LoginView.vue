@@ -12,6 +12,7 @@ const loginData = reactive({
 const message = ref()
 const store = UserStore()
 const login = async () => {
+  store.isLoading = true
   try{
     const res = await axios.post("/api/auth/login", {
       "email": loginData.email,
@@ -27,6 +28,8 @@ const login = async () => {
       if(ex.response.status === 400) {
         message.value = 'Şifrə və ya email səhvdir'
       }
+  } finally {
+    store.isLoading = false
   }
 }
 
