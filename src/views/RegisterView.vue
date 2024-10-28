@@ -2,10 +2,8 @@
 import {onMounted, reactive, ref} from "vue";
 import axios from "axios";
 import {useRouter} from "vue-router";
-import {UserStore} from "@/stores/UserStore.js";
 
 const router = useRouter()
-const store = UserStore()
 const specializations = ref([])
 const validations = ref([])
 const conflict = ref()
@@ -35,9 +33,7 @@ onMounted(async () => {
     console.log(error)
   }
 })
-
 const register = async () => {
-  store.isLoading = true
   try {
     const res = await axios.post("/api/auth/register", registerData)
     if(res.status === 200) {
@@ -53,7 +49,6 @@ const register = async () => {
     }
 
   } finally {
-    store.isLoading = false
   }
 
 }

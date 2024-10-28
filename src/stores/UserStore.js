@@ -1,6 +1,7 @@
 import {defineStore} from "pinia";
 import axios from "axios";
 import {computed, reactive, ref} from "vue";
+import {useRouter} from "vue-router";
 
 export const UserStore = defineStore("userStore", () => {
     const user = reactive({
@@ -18,6 +19,7 @@ export const UserStore = defineStore("userStore", () => {
         phoneNumber: "",
         reprimands: []
     })
+    const router = useRouter();
     const isAuthenticated = ref(false)
     const isLoading = ref(false)
     async function getUser(){
@@ -41,6 +43,9 @@ export const UserStore = defineStore("userStore", () => {
                         this.user = {...r.data}
                         this.isAuthenticated = true
                     }
+                }
+                else if(error.response.status === 500) {
+                    await router.push("/server-error")
                 }
             } finally {
                 isLoading.value = false
