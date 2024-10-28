@@ -44,7 +44,7 @@ const register = async () => {
   }
   catch (err) {
     if(err.response.status === 400) {
-      validations.value = Object.values(err.response.data.errors)
+      validations.value = err.response.data.errors
     } else if(err.response.status === 409) {
       console.log(err)
       conflict.value = err.response.data.message;
@@ -62,26 +62,33 @@ const register = async () => {
         <div class="mb-3">
           <label class="form-label">Email</label>
           <input v-model="registerData.email" type="email" class="form-control" placeholder="name@example.com">
+          <span v-if="validations.email" class="text-danger">{{ validations.email[0] }}</span>
         </div>
         <div class="mb-3">
           <label class="form-label">Şifrə</label>
           <input v-model="registerData.password" type="password" class="form-control">
+          <span v-if="validations.password" class="text-danger">{{ validations.password[0] }}</span>
         </div>
         <div class="mb-3">
           <label class="form-label">FİN</label>
           <input v-model="registerData.fin" class="form-control" placeholder="7ABC21O">
+          <span v-if="validations.fin" class="text-danger">{{ validations.fin[0] }}</span>
         </div>
         <div class="mb-3">
           <label class="form-label">Ş/V seriya nömrəsi</label>
           <input v-model="registerData.passportNo" class="form-control" placeholder="AA3456789">
+          <span v-if="validations.passportNo" class="text-danger">{{ validations.passportNo[0] }}</span>
         </div>
         <div class="mb-3">
           <label class="form-label">Ad</label>
           <input v-model="registerData.firstname" class="form-control" placeholder="Nizami">
+          <span v-if="validations.firstNameMoreThan" class="text-danger">{{ validations.firstNameMoreThan[0] }}</span>
+          <span v-if="validations.firstNameLessThan" class="text-danger">{{ validations.firstNameLessThan[0] }}</span>
         </div>
         <div class="mb-3">
           <label class="form-label">Soyad</label>
           <input v-model="registerData.secondname" class="form-control"  placeholder="Mamedov">
+          <span v-if="validations.secondNameMoreThan" class="text-danger">{{ validations.secondNameMoreThan[0] }}</span>
         </div>
         <div class="mb-3">
           <label class="form-label">Telefon nömrəsi</label>
@@ -100,6 +107,8 @@ const register = async () => {
         <div class="mb-3">
           <label class="form-label">Ata adı</label>
           <input class="form-control" v-model="registerData.fatherName"/>
+          <span v-if="validations.fatherNameMoreThan" class="text-danger">{{ validations.fatherNameMoreThan[0] }}</span>
+          <span v-if="validations.fatherNameLessThan" class="text-danger">{{ validations.fatherNameLessThan[0] }}</span>
         </div>
         <div class="mb-3">
           <label class="form-label">İxtisas</label>
@@ -110,29 +119,19 @@ const register = async () => {
         <div class="mb-3">
           <label class="form-label">Kurs</label>
           <input v-model="registerData.course" class="form-control" placeholder="3">
+          <span v-if="validations.coursegreaterthan" class="text-danger">{{ validations.coursegreaterthan[0] }}</span>
+          <span v-if="validations.courselessthan" class="text-danger">{{ validations.courselessthan[0] }}</span>
+
         </div>
         <div class="mb-3">
-          <label class="form-label"></label>
+          <label class="form-label">Kod</label>
           <input v-model="registerData.code" class="form-control" placeholder="IKT2251">
+          <span v-if="validations.code" class="text-danger">{{ validations.code[0] }}</span>
         </div>
-      </div>
-    </div>
-    <div class="validation">
-      <div v-for="validation in validations">
-        <span class="text-danger" v-if="validation" v-for="v in validation">
-          {{v}}
-          <br>
-        </span>
-        <br>
-      </div>
-      <div>
-        <span class="text-danger">
-          {{ conflict }}
-        </span>
       </div>
     </div>
     <div class="mb-3">
-      <button class="btn btn-primary">Submit</button>
+      <button class="btn btn-primary">Dəvam et</button>
     </div>
   </form>
 </div>
