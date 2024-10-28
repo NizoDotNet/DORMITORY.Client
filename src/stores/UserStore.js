@@ -19,7 +19,9 @@ export const UserStore = defineStore("userStore", () => {
         reprimands: []
     })
     const isAuthenticated = ref(false)
+    const isLoading = ref(false)
     async function getUser(){
+        isLoading.value = true
         if(this.user.id === "")
         {
             try {
@@ -42,9 +44,10 @@ export const UserStore = defineStore("userStore", () => {
                 }
             }
         }
-
+        isLoading.value = false
     }
     function logOut() {
+        isLoading.value = true
         axios.post('/api/auth/logout')
             .then(res => {
                 if(res.status === 200){
@@ -64,7 +67,7 @@ export const UserStore = defineStore("userStore", () => {
                     this.isAuthenticated = false
                 }
             }).catch(err => console.log('error in logout ' + err));
-
+        isLoading.value = false
     }
-    return {user, isAuthenticated, getUser, logOut}
+    return {user, isLoading, isAuthenticated, getUser, logOut}
 })

@@ -1,16 +1,17 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
 import {UserStore} from "@/stores/UserStore.js";
-const store = UserStore()
 import {onMounted} from "vue";
-console.log(store.user)
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+const store = UserStore()
 onMounted(async () => {
   await store.getUser()
 })
 </script>
 
 <template>
-    <Navbar></Navbar>
-    <router-view></router-view>
+  <Navbar></Navbar>
+  <PulseLoader v-if="store.isLoading"/>
+  <router-view v-else></router-view>
 </template>
 
