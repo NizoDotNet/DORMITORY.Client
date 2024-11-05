@@ -10,25 +10,28 @@ const logOut = () => {
 </script>
 
 <template>
-  <div class="container">
+  <div class="ms-2 me-2">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
       <div class="col-md-3 mb-2 mb-md-0">
         <router-link to="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-          <img src="../assets/images/ADAU-logo.png" alt="" width="50" height="50">
+          <img src="../assets/images/ADAU-logo.png" width="50px" height="50px"/>
         </router-link>
       </div>
 
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><router-link to="/" class="nav-link px-2 link-secondary">Ana səhifə</router-link></li>
-        <li><router-link to="/Contact" class="nav-link px-2">Əlaqə</router-link></li>
-      </ul>
+<!--      <ul class="nav nav-pills">
+        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+        <li><a href="#" class="nav-link px-2">Features</a></li>
+        <li><a href="#" class="nav-link px-2">Pricing</a></li>
+        <li><a href="#" class="nav-link px-2">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2">About</a></li>
+      </ul>-->
 
       <div v-if="!store.isAuthenticated" class="col-md-3 text-end">
-        <button @click="$router.push('/Login')" type="button" class="btn btn-outline-primary me-2">Daxil ol</button>
-        <button @click="$router.push('/Register')" type="button" class="btn btn-primary">Qeydiyyatdan keç</button>
+        <router-link to="/login" class="btn btn-outline-primary me-2">Daxil ol</router-link>
+        <router-link to="/register" class="btn btn-primary">Qeydiyyatdan keç</router-link>
       </div>
       <div v-else class="col-md-3 text-end">
-        <button @click="$router.push('/user')" type="button" class="btn btn-outline-primary me-2">{{ store.user.email }}</button>
+        <router-link to="/user" class="btn me-1">{{ store.user.email }}</router-link>
         <button @click="logOut" type="button" class="btn btn-outline-primary me-2">Logout</button>
       </div>
     </header>
