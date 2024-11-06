@@ -1,3 +1,8 @@
-#app {
-    background: url("./images/background.jpg");
+* {
+    font-family: 'Trebuchet MS', sans-serif;
+}
+.main {
+    height: 100vh;
+    background-color: #036513;
+    color: white;
 }

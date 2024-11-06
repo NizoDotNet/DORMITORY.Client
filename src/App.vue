@@ -1,5 +1,6 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
+import Footer from "@/components/Footer.vue";
 import {UserStore} from "@/stores/UserStore.js";
 import {onMounted} from "vue";
 import PulseLoader from 'vue-spinner/src/BeatLoader.vue'
@@ -17,7 +18,7 @@ onMounted(async () => {
     </div>
     <router-view v-else></router-view>
   </div>
-
+  <Footer />
 </template>
 <style>
 </style>

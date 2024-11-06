@@ -11,7 +11,7 @@ const loginData = reactive({
   email: "",
   password: ""
 })
-const message = ref()
+const message = ref('')
 
 const login = async () => {
   store.isLoading = true
@@ -38,7 +38,7 @@ const login = async () => {
 </script>
 
 <template>
-  <form @submit.prevent="login">
+  <form @submit.prevent="login" class="mt-3">
     <div class="mb-3">
       <label class="form-label"></label>
       <input autocomplete="email" v-model="loginData.email" type="email" class="form-control-lg" placeholder="example@gmail.com"  >
@@ -52,9 +52,10 @@ const login = async () => {
         {{message}}
       </span>
     </div>
-    <br>
-    <button class="btn btn-primary">
-      Daxil ol
-    </button>
+    <div class="d-flex justify-content-end">
+      <button class="p-2 btn btn-primary">
+        Daxil ol
+      </button>
+    </div>
   </form>
 </template>

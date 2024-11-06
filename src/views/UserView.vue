@@ -10,6 +10,8 @@ if(store.isAuthenticated === false) {
 </script>
 
 <template>
-<UserInformation :user="store.user"/>
+<div class="container">
+  <UserInformation :user="store.user"/>
+</div>
 </template>
 
