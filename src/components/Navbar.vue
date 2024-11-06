@@ -24,7 +24,6 @@ const logOut = () => {
       </ul>
 
       <div v-if="!store.isAuthenticated" class="col-md-3 text-end">
-        <button @click="$router.push('/Login')" type="button" class="btn btn-outline-primary me-2">Daxil ol</button>
         <button @click="$router.push('/Register')" type="button" class="btn btn-primary">Qeydiyyatdan keç</button>
       </div>
       <div v-else class="col-md-3 text-end">
