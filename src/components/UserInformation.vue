@@ -6,16 +6,17 @@ import QR from "@/components/QR.vue";
 </script>
 
 <template>
-  <div class="row justify-content-center">
-    <div class="col-4">
+  <div class="d-flex flex-row justify-content-start" style="margin-bottom: 40px">
+    <div class="" style="margin-end: 140px">
       <img src="../assets/images/noimage.jpg" width="128" height="128" alt="">
     </div>
-    <div class="col-4">
+    <div class="" style="margin-end: 100px">
       <QR :id="user.id" />
     </div>
   </div>
+
   <div class="row justify-content-center">
-    <div class="col-4">
+    <div class="col">
       <p>ID: {{ user.id }}</p>
       <p>AD: {{ user.firstname }}</p>
       <p>SOYAD: {{user.secondname}}</p>
@@ -25,7 +26,7 @@ import QR from "@/components/QR.vue";
       <p>Email: {{ user.email }}</p>
       <p>ƏLAQƏ N.: {{ user.phoneNumber }}</p>
     </div>
-    <div class="col-4">
+    <div class="col">
       <div v-if="user.specialization === null">
         <p>FAKÜLTƏ: Yoxdur</p>
         <p>İXTİSAS: Yoxdur</p>
