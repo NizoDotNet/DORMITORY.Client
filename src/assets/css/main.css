@@ -3,6 +3,15 @@
 }
 .main {
     height: 100vh;
-    background-color: #036513;
+    background-color: #6B911B;
     color: white;
 }
+
+.adau-color-1 {
+    background-color: #598216;
+}
+
+#app {
+    background-color: #598216;
+}
+
