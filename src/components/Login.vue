@@ -40,8 +40,8 @@ const login = async () => {
 <template>
   <form @submit.prevent="login" class="mt-3">
     <div class="mb-3">
-      <label class="form-label"></label>
-      <input autocomplete="email" v-model="loginData.email" type="email" class="form-control-lg" placeholder="example@gmail.com"  >
+      <label for="email" class="form-label"></label>
+      <input id="email" autocomplete="email" v-model="loginData.email" type="email" class="form-control-lg" placeholder="example@gmail.com" >
     </div>
     <div class="mb-3">
       <label class="form-label"></label>
@@ -52,8 +52,11 @@ const login = async () => {
         {{message}}
       </span>
     </div>
-    <div class="d-flex justify-content-end">
-      <button class="p-2 btn btn-primary">
+    <div class="mb-3">
+      <router-link class="text-white" to="/Register">Qeydiyyat linki</router-link>
+    </div>
+    <div class="">
+      <button class="p-2 btn text-white btn-block" style="width: 265px; background-color: #215702">
         Daxil ol
       </button>
     </div>

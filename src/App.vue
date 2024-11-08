@@ -20,6 +20,5 @@ onMounted(async () => {
   </div>
   <Footer />
 </template>
-<style>
-</style>
+
 
