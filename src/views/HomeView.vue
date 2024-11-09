@@ -7,7 +7,7 @@ console.log(store.isAuthenticated)
 </script>
 
 <template>
-  <div class="container p-5">
+  <div class="p-5">
     <div v-if="!store.isAuthenticated" class="d-flex align-items-center justify-content-center form">
       <div style="width: 300px">
         <div class="m-3 d-flex align-items-center justify-content-center">

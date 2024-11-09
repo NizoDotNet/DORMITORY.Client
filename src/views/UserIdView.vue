@@ -36,7 +36,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container p-5">
+  <div class="p-5">
     <UserInformation v-if="!isLoading" :user="user" />
   </div>
 </template>

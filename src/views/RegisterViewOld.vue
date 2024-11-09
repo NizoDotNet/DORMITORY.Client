@@ -55,7 +55,7 @@ const register = async () => {
 </script>
 
 <template>
-<div class="container d-flex align-items-center justify-content-center" style="height: 90vh">
+<div class=" d-flex align-items-center justify-content-center" style="height: 90vh">
   <div class="form p-2 d-inline-flex justify-content-center align-items-center">
     <form @submit.prevent="register">
       <div class="row">
