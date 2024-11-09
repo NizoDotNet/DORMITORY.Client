@@ -11,6 +11,7 @@ onMounted(async () => {
 </script>
 
 <template>
+  s
   <Navbar></Navbar>
   <div class="main">
     <div v-if="store.isLoading" class="loader d-flex flex-column min-vh-100 justify-content-center align-items-center">
