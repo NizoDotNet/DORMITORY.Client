@@ -36,7 +36,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container d-flex flex-column align-items-center justify-content-center" style="height: 100vh; width: 100vw">
+  <div class="container p-5">
     <UserInformation v-if="!isLoading" :user="user" />
   </div>
 </template>

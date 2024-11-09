@@ -7,9 +7,9 @@ console.log(store.isAuthenticated)
 </script>
 
 <template>
-  <div class="d-flex align-items-center justify-content-center" style="height: 100vh">
+  <div class="container p-5">
     <div v-if="!store.isAuthenticated" class="d-flex align-items-center justify-content-center form">
-      <div>
+      <div style="width: 300px">
         <div class="m-3 d-flex align-items-center justify-content-center">
           <Login />
         </div>
@@ -21,7 +21,7 @@ console.log(store.isAuthenticated)
         </div>
       </div>
     </div>
-    <div v-else class="container d-flex flex-column align-items-center justify-content-center" style="height: 80vh; width: 80vw">
+    <div v-else >
       <UserInformation :user="store.user" />
     </div>
 

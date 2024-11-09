@@ -10,7 +10,7 @@ if(store.isAuthenticated === false) {
 </script>
 
 <template>
-<div class="container d-flex flex-column align-items-center justify-content-center" style="height: 80vh; width: 80vw">
+<div class="container p-5" >
   <UserInformation :user="store.user"/>
 </div>
 </template>
