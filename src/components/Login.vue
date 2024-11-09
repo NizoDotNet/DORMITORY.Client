@@ -11,10 +11,11 @@ const loginData = reactive({
   email: "",
   password: ""
 })
+const isLoading = ref(false);
 const message = ref('')
 
 const login = async () => {
-  store.isLoading = true
+  isLoading.value = true
   try{
     const res = await axios.post("/api/auth/login", {
       "email": loginData.email,
@@ -31,7 +32,7 @@ const login = async () => {
       message.value = 'Şifrə və ya email səhvdir'
     }
   } finally {
-    store.isLoading = false
+    isLoading.value = false
   }
 }
 
@@ -56,7 +57,8 @@ const login = async () => {
       <router-link class="text-white" to="/Register">Qeydiyyat linki</router-link>
     </div>
     <div class="">
-      <button class="p-2 btn text-white btn-block" style="width: 265px; background-color: #215702">
+      <PulseLoader v-if="isLoading"></PulseLoader>
+      <button v-else class="p-2 btn text-white btn-block" style="width: 265px; background-color: #215702">
         Daxil ol
       </button>
     </div>

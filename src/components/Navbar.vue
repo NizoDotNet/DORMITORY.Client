@@ -11,7 +11,7 @@ const logOut = () => {
 
 <template>
   <div style="background-color: #598216">
-    <div class="">
+    <div class="container">
       <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between p-2">
         <div class="col-md-3 mb-2 mb-md-0">
           <router-link to="/" class="d-inline-flex link-body-emphasis text-decoration-none">
