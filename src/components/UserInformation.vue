@@ -3,6 +3,19 @@ const props = defineProps({
   user: Object
 })
 import QR from "@/components/QR.vue";
+
+let color = 'white'
+switch (props.user.status) {
+  case 'Accepted':
+    color = 'white';
+    break;
+  case 'Rejected':
+    color = 'red';
+    break;
+  case 'Pending':
+    color = 'yellow';
+    break;
+}
 </script>
 
 <template>
@@ -41,10 +54,13 @@ import QR from "@/components/QR.vue";
           <p>KOD: {{ user.code }}</p>
           <p>BLOK: {{ user.block }}</p>
           <p>OTAQ: {{ user.room }}</p>
-          <p>STATUS: {{ user.status }}</p>
+          <p :style="{color: color}">STATUS: {{ user.status }}</p>
         </div>
       </div>
-      <h2 class="text-danger" v-if="user.reprimands.length > 0">Töhmətlər</h2>
+      <div class="d-flex justify-content-center">
+        <h5 class="text-danger" v-if="user.reprimands.length > 0">Töhmətlər</h5>
+
+      </div>
       <div v-for="reprimand in user.reprimands" class="row">
         <hr align="center" color="#dddddd" />
         <p>TÖHMƏTİN AÇIQLAMASI: {{ reprimand.text }}</p>
