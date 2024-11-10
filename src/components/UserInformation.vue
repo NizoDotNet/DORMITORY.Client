@@ -6,7 +6,7 @@ import QR from "@/components/QR.vue";
 </script>
 
 <template>
-  <div class="d-flex justify-content-center align-items-center">
+  <div class="d-flex justify-content-center align-items-center" style="margin: 60px">
     <div class="p-5 flex-column justify-content-center align-items-center" style="background-color: #598216">
       <div class="d-flex flex-row justify-content-start" style="margin-bottom: 40px">
         <div class="" style="margin-end: 140px">
@@ -41,14 +41,10 @@ import QR from "@/components/QR.vue";
           <p>KOD: {{ user.code }}</p>
           <p>BLOK: {{ user.block }}</p>
           <p>OTAQ: {{ user.room }}</p>
+          <p>STATUS: {{ user.status }}</p>
         </div>
       </div>
-
-    </div>
-    <div class="d-flex ">
       <h2 class="text-danger" v-if="user.reprimands.length > 0">Töhmətlər</h2>
-    </div>
-    <div class="row">
       <div v-for="reprimand in user.reprimands" class="row">
         <hr align="center" color="#dddddd" />
         <p>TÖHMƏTİN AÇIQLAMASI: {{ reprimand.text }}</p>
@@ -57,6 +53,7 @@ import QR from "@/components/QR.vue";
         <p>Tip: {{ reprimand.type }}</p>
       </div>
     </div>
+
 
   </div>
 

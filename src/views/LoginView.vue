@@ -1,12 +1,9 @@
 <script setup>
-import Login from "@/components/Login.vue";
+import LoginFormComponent from "@/components/LoginFormComponent.vue";
 </script>
 
 <template>
-  <div class="d-flex justify-content-center align-items-center" style="height: 90vh">
-    <div class="d-flex justify-content-center align-items-center">
-      <Login />
-    </div>
+  <div class="d-flex align-items-center justify-content-center p-5">
+    <LoginFormComponent />
   </div>
-
 </template>

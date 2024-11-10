@@ -17,6 +17,7 @@ export const UserStore = defineStore("userStore", () => {
         course: "",
         code: "",
         phoneNumber: "",
+        status: "",
         reprimands: []
     })
     const router = useRouter();
