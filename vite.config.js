@@ -5,8 +5,8 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/adau-yataqxana",
-  publicPath: '/adau-yataqxana/',
+  base: '/DORMITORY.Client/',
+  publicPath: '/DORMITORY.Client/',
   plugins: [
     vue(),
   ],
