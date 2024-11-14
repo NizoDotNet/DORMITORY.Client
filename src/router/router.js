@@ -16,7 +16,7 @@ const routes = [
 ]
 
 export default createRouter({
-    history: createWebHistory("/DORMITORY.Client"),
+    history: createWebHistory("/DORMITORY.Client/"),
     routes,
 })
 
