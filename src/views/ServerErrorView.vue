@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<h2 class="text-center">500</h2>
+<h2 class="text-center">Back-End konfiqurasiya edilmeyib</h2>
 </template>
 
 <style scoped>
