@@ -5,7 +5,8 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/",
+  base: "/adau-yataqxana",
+  publicPath: '/adau-yataqxana/',
   plugins: [
     vue(),
   ],
