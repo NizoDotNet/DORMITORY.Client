@@ -3,6 +3,7 @@ const props = defineProps({
   user: Object
 })
 import QR from "@/components/QR.vue";
+import moment from 'moment';
 
 let color = 'white'
 switch (props.user.status) {
@@ -65,7 +66,7 @@ switch (props.user.status) {
         <hr align="center" color="#dddddd" />
         <p>TÖHMƏTİN AÇIQLAMASI: {{ reprimand.text }}</p>
         <p>ƏMRİN NÖMRƏSİ: {{ reprimand.code }}</p>
-        <p>Tarix: {{ reprimand.dateTime }}</p>
+        <p>Tarix: {{ moment(reprimand.dateTime.substring(0, 10)).format("DD-MM-YYYY") }}</p>
         <p>Tip: {{ reprimand.type }}</p>
       </div>
     </div>
