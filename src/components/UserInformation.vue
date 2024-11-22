@@ -21,7 +21,7 @@ switch (props.user.status) {
 
 <template>
   <div class="d-flex justify-content-center align-items-center">
-    <div class="p-5 flex-column justify-content-center align-items-center" style="background-color: #598216">
+    <div class="p-5 flex-column justify-content-center align-items-center information-container"  style="">
       <div class="d-flex flex-row justify-content-start" style="margin-bottom: 40px">
         <div class="" style="margin-end: 140px">
           <img src="../assets/images/noimage.jpg" width="128" height="128" alt="">
@@ -31,7 +31,7 @@ switch (props.user.status) {
         </div>
       </div>
 
-      <div class="row justify-content-center">
+      <div class="row">
         <div class="col">
           <p>ID: {{ user.id }}</p>
           <p>AD: {{ user.firstname }}</p>
@@ -76,3 +76,9 @@ switch (props.user.status) {
 
 </template>
 
+<style scoped>
+.information-container {
+  background-color: #598216;
+  margin: 70px
+}
+</style>

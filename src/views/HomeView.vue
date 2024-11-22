@@ -7,11 +7,11 @@ console.log(store.isAuthenticated)
 </script>
 
 <template>
-  <div class="p-5">
+  <div class="p-5" style="margin: 15px">
     <div v-if="!store.isAuthenticated" class="">
       <div class="row">
         <div class="col-md-6 order-md-2">
-          <img src="../assets/images/HOMEQR.svg" alt="" width="500px" class="imaga-fluid">
+          <img src="../assets/images/HOMEQR.svg" alt="" width="500px" class="img-fluid">
         </div>
         <div class="col-md-6">
           <div class="d-flex align-items-center justify-content-center">

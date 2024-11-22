@@ -3,7 +3,7 @@ import Login from "@/components/Login.vue";
 </script>
 
 <template>
-  <div class="d-flex justify-content-center align-items-center flex-column" style="width: 300px">
+  <div class="d-flex justify-content-center align-items-center flex-column" style="width: 300px; margin-bottom: 20px">
     <div class="m-3 d-flex align-items-center justify-content-center form">
       <Login />
     </div>
