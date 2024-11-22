@@ -3,7 +3,7 @@ import {reactive, ref} from "vue";
 import axios from "axios";
 import {UserStore} from "@/stores/UserStore.js";
 import { useRouter } from "vue-router";
-
+import PulseLoader from 'vue-spinner/src/BeatLoader.vue'
 const router = useRouter();
 const store = UserStore()
 
@@ -57,7 +57,7 @@ const login = async () => {
       <router-link class="text-white" to="/Register">Qeydiyyat linki</router-link>
     </div>
     <div class="">
-      <PulseLoader v-if="isLoading"></PulseLoader>
+      <PulseLoader v-if="isLoading" />
       <button v-else class="p-2 btn text-white btn-block" style="width: 265px; background-color: #215702">
         Daxil ol
       </button>

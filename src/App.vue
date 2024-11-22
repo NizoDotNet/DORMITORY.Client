@@ -11,16 +11,16 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Navbar></Navbar>
   <div class="main">
+    <Navbar></Navbar>
     <div v-if="store.isLoading" class="loader d-flex min-vh-100 justify-content-center align-items-center">
       <PulseLoader class=""/>
     </div>
     <div v-else >
       <router-view ></router-view>
     </div>
+    <Footer />
   </div>
-  <Footer />
 </template>
 
 
