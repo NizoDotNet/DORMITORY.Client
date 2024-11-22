@@ -20,7 +20,7 @@ switch (props.user.status) {
 </script>
 
 <template>
-  <div class="d-flex justify-content-center align-items-center" style="margin: 60px">
+  <div class="d-flex justify-content-center align-items-center">
     <div class="p-5 flex-column justify-content-center align-items-center" style="background-color: #598216">
       <div class="d-flex flex-row justify-content-start" style="margin-bottom: 40px">
         <div class="" style="margin-end: 140px">
