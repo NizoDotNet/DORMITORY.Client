@@ -60,6 +60,9 @@ const register = async () => {
       console.log(err)
       conflict.value = err.response.data.message;
     }
+    else {
+      console.log(err)
+    }
 
   } finally {
   }
@@ -77,6 +80,8 @@ const register = async () => {
             <label for="email" class="form-label">Email</label>
             <input id="email" v-model="registerData.email" type="email" class="form-control" placeholder="name@example.com">
             <span v-if="validations.email" class="text-danger">{{ validations.email[0] }}</span>
+            <span v-if="validations.DuplicateUserName" class="text-danger">Bu e-mail istifadə olunub</span>
+
           </div>
           <div class="m-3">
             <label class="form-label">Şifrə</label>
