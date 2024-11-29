@@ -23,6 +23,7 @@ const registerData = reactive({
   course: 0,
   code: ""
 })
+const confirmPassword = ref('')
 
 onMounted(async () => {
   try {
@@ -89,6 +90,13 @@ const register = async () => {
             <span v-if="validations.password" class="text-danger">{{ validations.password[0] }}</span>
           </div>
           <div class="m-3">
+            <label class="form-label">Şifrəni təkrarla</label>
+            <input v-model="confirmPassword" type="password" class="form-control">
+            <span v-if="confirmPassword !== registerData.password" class="text-danger">
+              Şifrələr eyni deyil
+            </span>
+          </div>
+          <div class="m-3">
             <label class="form-label">FİN</label>
             <input v-model="registerData.fin" class="form-control" placeholder="7ABC21O">
             <span v-if="validations.fin" class="text-danger">{{ validations.fin[0] }}</span>
@@ -139,7 +147,14 @@ const register = async () => {
           </div>
           <div class="m-3">
             <label class="form-label">Kurs</label>
-            <input v-model="registerData.course" class="form-control" placeholder="3">
+            <select v-model="registerData.course" name="" id="" class="form-select">
+              <option :value="1">1</option>
+              <option :value="2">2</option>
+              <option :value="3">3</option>
+              <option :value="4">4</option>
+              <option :value="5">5</option>
+            </select>
+<!--            <input v-model="registerData.course" class="form-control" placeholder="3">-->
             <span v-if="validations.coursegreaterthan" class="text-danger">{{ validations.coursegreaterthan[0] }}</span>
             <span v-if="validations.courselessthan" class="text-danger">{{ validations.courselessthan[0] }}</span>
 
