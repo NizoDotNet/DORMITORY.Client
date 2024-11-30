@@ -4,7 +4,7 @@
 
 <template>
   <div class="contact-information-container">
-    <div class="form">
+    <div class="form" style="margin-bottom: 0px">
       <h2 class="text-center">Əlaqə</h2>
       <div class="d-flex justify-content-center">
         <div class="social-media">
@@ -91,8 +91,8 @@
         <img src="../assets/images/logo.png" alt="" height="175px" >
       </div>
     </div>
+    <div style="height: 100px"></div>
   </div>
-
 </template>
 
 <style scoped>
@@ -100,6 +100,7 @@
   width: 100%;
   height: 100vh;
   margin-top: 40px;
+  margin-bottom: 500px;
 }
 
 .social-media {
