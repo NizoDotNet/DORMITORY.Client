@@ -11,7 +11,9 @@ const user = ref()
 const id = route.params.id
 const isLoading = ref(true)
 const store = UserStore()
-if(store.isAuthenticated === false) {
+const message = ref(false)
+const success = ref(false)
+if(!store.isAuthenticated) {
   router.push('/login')
 }
 onMounted(async () => {
@@ -21,14 +23,16 @@ onMounted(async () => {
       user.value = res.data
       console.log(user.value)
       isLoading.value = false
+      success.value = true
     }
   } catch (err) {
     console.log(err)
     if(err.response.status === 404) {
-      await router.push('/')
+      isLoading.value = false
+      message.value = `${id} İD - li tələbə tapılmadı`
     }
     else if(err.response.status === 403) {
-      await  router.push('/user')
+      await router.push('/user')
     }
   }
 
@@ -37,7 +41,12 @@ onMounted(async () => {
 
 <template>
   <div class="p-5">
-    <UserInformation v-if="!isLoading" :user="user" />
+    <UserInformation v-if="!isLoading && success" :user="user" />
+  </div>
+  <div v-if="!success" class="d-flex justify-content-center align-items-center"  style="">
+    <h3 class="text-danger" >
+      {{ message }}
+    </h3>
   </div>
 </template>
 

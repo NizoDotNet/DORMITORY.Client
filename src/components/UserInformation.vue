@@ -1,9 +1,12 @@
 <script setup>
+import {ref} from "vue";
+import QR from "@/components/QR.vue";
+import moment from 'moment';
+import axios from "axios";
+
 const props = defineProps({
   user: Object
 })
-import QR from "@/components/QR.vue";
-import moment from 'moment';
 
 let color = 'white'
 switch (props.user.status) {
@@ -17,6 +20,35 @@ switch (props.user.status) {
     color = 'yellow';
     break;
 }
+
+const file = ref(null)
+
+const uploadImage = async () => {
+  try {
+    console.log(file.value)
+    const formData = new FormData();
+    formData.append('uploadFile', file.value);
+    const res = await axios.post("/api/images", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    })
+    if(res.status === 200) {
+      window.location.reload()
+    }
+  } catch (er) {
+    if(er.response.status === 400) {
+      alert(er.response.data.ContentType[0])
+    }
+  }
+}
+
+const onFileChanged = ($event) => {
+  const target = $event.target;
+  if (target && target.files) {
+    file.value = target.files[0];
+  }
+}
 </script>
 
 <template>
@@ -25,7 +57,17 @@ switch (props.user.status) {
       <div class="p-5 flex-column justify-content-center align-items-center information-container"  style="">
         <div class="d-flex flex-row justify-content-start" style="margin-bottom: 40px">
           <div class="" style="margin-end: 20px">
-            <img src="../assets/images/noimage.jpg" width="128" height="128" alt="">
+            <div class="image">
+              <img class="image" :src="user.imageUrl" alt="">
+            </div>
+            <input
+                ref="fileInput"
+                @change="onFileChanged($event)"
+                class="form-control form-control-sm mt-2"
+                type="file"
+                 />
+            <button @click="uploadImage" class="btn btn-light mt-2">Yüklə</button>
+<!--            <img v-else src="../assets/images/noimage.jpg" width="128" height="128" alt="">-->
           </div>
           <div class="">
             <QR :id="user.id" />
@@ -86,4 +128,14 @@ switch (props.user.status) {
   background-color: #598216;
   margin: 70px
 }
+.image {
+  width: 128px;
+  height: 200px;
+
+}
+img {
+  object-fit: contain;
+}
+
+
 </style>

@@ -18,6 +18,7 @@ export const UserStore = defineStore("userStore", () => {
         code: "",
         phoneNumber: "",
         status: "",
+        imageUrl: "",
         reprimands: []
     })
     const router = useRouter();
@@ -69,7 +70,8 @@ export const UserStore = defineStore("userStore", () => {
                         passportNo: "",
                         fatherName: "",
                         course: "",
-                        code: ""
+                        code: "",
+                        imageUrl: ""
                     }
                     this.isAuthenticated = false
                 }

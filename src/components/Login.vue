@@ -68,7 +68,7 @@ const login = async () => {
       >
     </div>
     <div class="">
-      <PulseLoader v-if="isLoading" />
+      <PulseLoader v-if="isLoading"/>
       <button
         v-else
         class="p-2 btn text-white btn-block"
