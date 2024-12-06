@@ -130,7 +130,7 @@ const onFileChanged = ($event) => {
 }
 .image {
   width: 128px;
-  height: 200px;
+  height: 128px;
 
 }
 img {
