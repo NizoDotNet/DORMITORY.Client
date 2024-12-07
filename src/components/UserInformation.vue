@@ -58,7 +58,7 @@ const onFileChanged = ($event) => {
         <div class="d-flex flex-row justify-content-start" style="margin-bottom: 40px">
           <div class="" style="margin-end: 20px">
             <div class="image">
-              <img class="image" :src="user.imageUrl" alt="">
+              <img class="image" :src="`https://localhost:5001/api/images/${user.id}`" alt="">
             </div>
             <input
                 ref="fileInput"
