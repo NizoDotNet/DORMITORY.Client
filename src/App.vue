@@ -5,6 +5,7 @@ import {UserStore} from "@/stores/UserStore.js";
 import {onMounted} from "vue";
 import PulseLoader from 'vue-spinner/src/BeatLoader.vue'
 const store = UserStore()
+console.log("Ishde")
 onMounted(async () => {
   await store.getUser()
 })

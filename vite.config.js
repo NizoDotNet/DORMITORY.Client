@@ -16,9 +16,11 @@ export default defineConfig({
   },
   server: {
     port: 8080,
+    host: true, // Here
+    strictPort: true,
     proxy: {
       '/api': {
-        target: 'https://localhost:5001',
+        target: 'https://dormitory-api-container:5001',
         changeOrigin: true,
         /*rewrite: (path) => path.replace(/^\/api/, ''),*/
         secure: false
