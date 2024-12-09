@@ -21,7 +21,6 @@ onMounted(async () => {
     const res = await axios.get('/api/user/' + id)
     if(res.status === 200) {
       user.value = res.data
-      console.log(user.value)
       isLoading.value = false
       success.value = true
     }

@@ -3,7 +3,6 @@ import UserInformation from "@/components/UserInformation.vue";
 import {UserStore} from "@/stores/UserStore.js";
 import LoginFormComponent from "@/components/LoginFormComponent.vue";
 const store = UserStore()
-console.log(store.isAuthenticated)
 </script>
 
 <template>

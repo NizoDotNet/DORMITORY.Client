@@ -41,8 +41,7 @@ export const UserStore = defineStore("userStore", () => {
                 if(error.response.status === 401) {
                     const r = await axios.post("/api/auth/refresh")
                     if(r.status === 200) {
-                        this.user = {...r.data}
-                        this.isAuthenticated = true
+                        window.location.reload()
                     }
                 }
                 else if(error.response.status === 500) {

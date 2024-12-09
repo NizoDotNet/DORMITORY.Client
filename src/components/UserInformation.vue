@@ -3,10 +3,14 @@ import {ref} from "vue";
 import QR from "@/components/QR.vue";
 import moment from 'moment';
 import axios from "axios";
+import {UserStore} from "@/stores/UserStore.js";
+
 
 const props = defineProps({
   user: Object
 })
+
+const userStore = UserStore()
 
 let color = 'white'
 switch (props.user.status) {
@@ -25,7 +29,6 @@ const file = ref(null)
 
 const uploadImage = async () => {
   try {
-    console.log(file.value)
     const formData = new FormData();
     formData.append('uploadFile', file.value);
     const res = await axios.post("/api/images", formData, {
@@ -56,18 +59,21 @@ const onFileChanged = ($event) => {
     <div class="d-flex justify-content-center align-items-center">
       <div class="p-5 flex-column justify-content-center align-items-center information-container"  style="">
         <div class="d-flex flex-row justify-content-start" style="margin-bottom: 40px">
+
           <div class="" style="margin-end: 20px">
             <div class="image">
               <img class="image" :src="`https://localhost:5001/api/images/${user.id}`" alt="">
             </div>
-            <input
-                ref="fileInput"
-                @change="onFileChanged($event)"
-                class="form-control form-control-sm mt-2"
-                type="file"
-                 />
-            <button @click="uploadImage" class="btn btn-light mt-2">Yüklə</button>
-<!--            <img v-else src="../assets/images/noimage.jpg" width="128" height="128" alt="">-->
+            <div v-if="userStore.user.id === user.id">
+              <input
+                  ref="fileInput"
+                  @change="onFileChanged($event)"
+                  class="form-control form-control-sm mt-2"
+                  type="file"
+              />
+              <button @click="uploadImage" class="btn btn-light mt-2">Yüklə</button>
+              <!--            <img v-else src="../assets/images/noimage.jpg" width="128" height="128" alt="">-->
+            </div>
           </div>
           <div class="">
             <QR :id="user.id" />
