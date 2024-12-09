@@ -41,7 +41,12 @@ const uploadImage = async () => {
     }
   } catch (er) {
     if(er.response.status === 400) {
-      alert(er.response.data.ContentType[0])
+      if(Object.hasOwn(er.response.data, "Length")) {
+        alert(er.response.data.Length[0])
+      }
+      if(Object.hasOwn(er.response.data, "ContentType")) {
+        alert(er.response.data.ContentTypeg[0])
+      }
     }
   }
 }
