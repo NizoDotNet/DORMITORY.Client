@@ -70,6 +70,7 @@ const onFileChanged = ($event) => {
                   @change="onFileChanged($event)"
                   class="form-control form-control-sm mt-2"
                   type="file"
+                  accept=".png,.jpg,.jpeg"
               />
               <button @click="uploadImage" class="btn btn-light mt-2">Yüklə</button>
               <!--            <img v-else src="../assets/images/noimage.jpg" width="128" height="128" alt="">-->
