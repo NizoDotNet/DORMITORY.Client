@@ -18,7 +18,7 @@ if(!store.isAuthenticated) {
 }
 onMounted(async () => {
   try {
-    const res = await axios.get('/api/user/' + id)
+    const res = await axios.get('/api/users/' + id)
     if(res.status === 200) {
       user.value = res.data
       isLoading.value = false
