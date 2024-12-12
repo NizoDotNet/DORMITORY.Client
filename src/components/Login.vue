@@ -22,6 +22,7 @@ const login = async () => {
       password: loginData.password,
     });
     if (res.status === 200) {
+      localStorage.setItem('jwt', res.data);
       await store.getUser();
       await router.push("/user");
     }
