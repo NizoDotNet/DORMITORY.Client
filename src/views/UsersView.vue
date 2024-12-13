@@ -1,11 +1,12 @@
 <script setup>
 import {ref} from "vue";
 import axios from "axios";
+import {useRouter} from "vue-router";
 
 let pageNumber = 1
 const search = ref(null)
 const users = ref([])
-
+const router = useRouter()
 
 const getUsers = async () => {
   try {
@@ -15,7 +16,10 @@ const getUsers = async () => {
       users.value = res.data
     }
   } catch (ex) {
-    console.log(ex)
+    if(ex.response.status === 403) {
+      await router.push("/")
+    }
+
   }
 }
 
