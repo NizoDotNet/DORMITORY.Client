@@ -88,7 +88,6 @@ const onFileChanged = ($event) => {
 
         <div class="row">
           <div class="col">
-            <p>ID: {{ user.id }}</p>
             <p>AD: {{ user.firstname }}</p>
             <p>SOYAD: {{user.secondname}}</p>
             <p>ATA ADI: {{ user.fatherName}} </p>
@@ -141,13 +140,18 @@ const onFileChanged = ($event) => {
   margin: 70px
 }
 .image {
-  width: 128px;
-  height: 128px;
+  width: 300px;
+  height: 300px;
 
 }
 img {
   object-fit: contain;
 }
 
-
+@media (max-width: 650px) {
+  .image {
+    width: 128px;
+    height: 128px;
+  }
+}
 </style>
