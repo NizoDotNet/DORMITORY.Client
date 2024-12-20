@@ -17,11 +17,11 @@ switch (props.user.status) {
   case 'Accepted':
     color = 'white';
     break;
-  case 'Rejected':
-    color = 'red';
-    break;
   case 'Pending':
     color = 'yellow';
+    break;
+  default:
+    color = 'red';
     break;
 }
 
