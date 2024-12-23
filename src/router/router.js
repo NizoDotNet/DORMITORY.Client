@@ -8,11 +8,13 @@ import UserIdView from "@/views/UserIdView.vue";
 import ServerErrorView from "@/views/ServerErrorView.vue";
 import ContactView from "@/views/ContactView.vue";
 import UsersView from "@/views/UsersView.vue";
+import UserIdViewFromQr from "@/views/UserIdViewFromQr.vue";
 const routes = [
     { path: '/', component: HomeView },
     { path: '/login', component: LoginView },
     { path: '/user', component: UserView },
     { path: '/users/:id', component: UserIdView, name: 'User' },
+    { path: '/users/qr/:id', component: UserIdViewFromQr},
     { path: '/register', component: RegisterView },
     { path: '/server-error', component: ServerErrorView},
     { path: "/contact", component: ContactView},
