@@ -71,7 +71,7 @@ switch (props.user.status) {
             <p :style="{color: color}">STATUS: {{ user.status }}</p>
           </div>
         </div>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mb-2">
           <button @click="showHistory = !showHistory" class="btn btn-light">
             <span v-if="showHistory">Töhmətlər</span>
             <span v-else>Tarixçə</span>
