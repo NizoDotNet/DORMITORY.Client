@@ -4,6 +4,7 @@ import QR from "@/components/QR.vue";
 import moment from 'moment';
 import axios from "axios";
 import {UserStore} from "@/stores/UserStore.js";
+import ReprimandComponent from "@/components/ReprimandComponent.vue";
 
 
 const props = defineProps({
@@ -116,17 +117,7 @@ const onFileChanged = ($event) => {
           <h5 class="text-danger" v-if="user.reprimands.length > 0">Töhmətlər</h5>
 
         </div>
-        <div v-for="reprimand in user.reprimands" class="row">
-          <hr align="center" color="#dddddd" />
-          <div class="text-break">
-            <p>TÖHMƏTİN AÇIQLAMASI: {{ reprimand.text }}</p>
-          </div>
-          <div class="text-break">
-            <p>ƏMRİN NÖMRƏSİ: {{ reprimand.code }}</p>
-          </div>
-          <p>Tarix: {{ moment(reprimand.dateTime.substring(0, 10)).format("DD-MM-YYYY") }}</p>
-          <p>Tip: {{ reprimand.type }}</p>
-        </div>
+        <ReprimandComponent :reprimands="user.reprimands" />
       </div>
     </div>
   </div>
