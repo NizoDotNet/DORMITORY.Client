@@ -24,7 +24,7 @@ async function getHistories(userId, pageNumber) {
 </script>
 
 <template>
-  <div class="histories" v-for="hitory in histories" :key="hitory.id">
+  <div class="histories" v-for="history in histories" :key="history.id">
     <hr align="center" color="#dddddd" />
     <p>Tarix: {{ moment(history.dateTime.substring(0, 10)).format("DD-MM-YYYY") }}</p>
   </div>
