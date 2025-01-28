@@ -73,8 +73,8 @@ switch (props.user.status) {
         </div>
         <div class="d-flex justify-content-center mb-2">
           <button @click="showHistory = !showHistory" class="btn btn-light">
-            <span v-if="showHistory">Töhmətlər</span>
-            <span v-else>Tarixçə</span>
+            <span v-if="showHistory">Tarixçə</span>
+            <span v-else class="text-danger">Töhmətlər</span>
           </button>
         </div>
         <HistoryComponent v-if="showHistory" :user-id="user.id"/>

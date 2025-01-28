@@ -33,8 +33,7 @@ onMounted(async () => {
     }
   } catch (error) {
     console.log(error)
-
-      // await router.push('/server-error')
+    await router.push('/server-error')
   }
   try {
     const block = await axios.get('/api/block')
@@ -43,7 +42,7 @@ onMounted(async () => {
     }
   } catch (error) {
     console.log(error)
-    // await router.push('/server-error')
+    await router.push('/server-error')
   }
 
 })
@@ -82,7 +81,6 @@ const register = async () => {
             <input id="email" v-model="registerData.email" type="email" class="form-control" placeholder="name@example.com">
             <span v-if="validations.email" class="text-danger">{{ validations.email[0] }}</span>
             <span v-if="validations.DuplicateUserName" class="text-danger">Bu e-mail istifadə olunub</span>
-
           </div>
           <div class="m-3">
             <label class="form-label">Şifrə</label>
@@ -154,10 +152,8 @@ const register = async () => {
               <option :value="4">4</option>
               <option :value="5">5</option>
             </select>
-<!--            <input v-model="registerData.course" class="form-control" placeholder="3">-->
             <span v-if="validations.coursegreaterthan" class="text-danger">{{ validations.coursegreaterthan[0] }}</span>
             <span v-if="validations.courselessthan" class="text-danger">{{ validations.courselessthan[0] }}</span>
-
           </div>
           <div class="m-3">
             <label class="form-label">Kod</label>
