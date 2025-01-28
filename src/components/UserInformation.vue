@@ -32,8 +32,10 @@ switch (props.user.status) {
   <div class="container p-5 ">
     <div class="d-flex justify-content-center align-items-center">
       <div class="p-5 flex-column justify-content-center align-items-center information-container"  style="">
+        <div v-if="user.status !== 'Accepted' || user.status !== 'Rejected'" class="mb-3 d-flex justify-content-start">
+          <router-link to="/user/update" class="btn btn-light">Düzənləmə</router-link>
+        </div>
         <div class="d-flex flex-row justify-content-start" style="margin-bottom: 40px">
-
           <div class="" style="margin-end: 20px">
             <div class="image">
               <img class="image" :src="`https://localhost:5001/api/images/${user.id}`" alt="">
