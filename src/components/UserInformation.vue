@@ -2,43 +2,55 @@
 import QR from "@/components/QR.vue";
 import ReprimandComponent from "@/components/ReprimandComponent.vue";
 import UploadImageComponent from "@/components/UploadImageComponent.vue";
-import {ref} from "vue";
+import { ref } from "vue";
 import HistoryComponent from "@/components/HistoryComponent.vue";
 
-
 const props = defineProps({
-  user: Object
-})
+  user: Object,
+});
 
-const showHistory = ref(true)
+const showHistory = ref(true);
 
-let color = 'white'
+let color = "white";
 switch (props.user.status) {
-  case 'Accepted':
-    color = 'white';
+  case "Accepted":
+    color = "white";
     break;
-  case 'Pending':
-    color = 'yellow';
+  case "Pending":
+    color = "yellow";
     break;
   default:
-    color = 'red';
+    color = "red";
     break;
 }
-
-
 </script>
 
 <template>
-  <div class="container p-5 ">
+  <div class="container p-5">
     <div class="d-flex justify-content-center align-items-center">
-      <div class="p-5 flex-column justify-content-center align-items-center information-container"  style="">
-        <div v-if="user.status === 'Pending'" class="mb-3 d-flex justify-content-start">
-          <router-link to="/user/update" class="btn btn-light">Düzənləmə</router-link>
+      <div
+        class="p-5 flex-column justify-content-center align-items-center information-container"
+        style=""
+      >
+        <div
+          v-if="user.status === 'Pending'"
+          class="mb-3 d-flex justify-content-start"
+        >
+          <router-link to="/user/update" class="btn btn-light"
+            >Düzənləmə</router-link
+          >
         </div>
-        <div class="d-flex flex-row justify-content-start" style="margin-bottom: 40px">
+        <div
+          class="d-flex flex-row justify-content-start"
+          style="margin-bottom: 40px"
+        >
           <div class="" style="margin-end: 20px">
             <div class="image">
-              <img class="image" :src="`https://localhost:5001/api/images/${user.id}`" alt="">
+              <img
+                class="image"
+                :src="`http://localhost:5000/api/images/${user.id}`"
+                alt=""
+              />
             </div>
             <UploadImageComponent :user="user" />
           </div>
@@ -50,8 +62,8 @@ switch (props.user.status) {
         <div class="row">
           <div class="col">
             <p>AD: {{ user.firstname }}</p>
-            <p>SOYAD: {{user.secondname}}</p>
-            <p>ATA ADI: {{ user.fatherName}} </p>
+            <p>SOYAD: {{ user.secondname }}</p>
+            <p>ATA ADI: {{ user.fatherName }}</p>
             <p>ŞƏXSİYYƏT VƏSİQƏSİNİN F/K: {{ user.fin }}</p>
             <p>ŞƏXSİYYƏT VƏSİQƏSİNİN S/N: {{ user.passportNo }}</p>
             <p>Email: {{ user.email }}</p>
@@ -70,7 +82,7 @@ switch (props.user.status) {
             <p>KOD: {{ user.code }}</p>
             <p>BLOK: {{ user.block }}</p>
             <p>OTAQ: {{ user.room }}</p>
-            <p :style="{color: color}">STATUS: {{ user.status }}</p>
+            <p :style="{ color: color }">STATUS: {{ user.status }}</p>
           </div>
         </div>
         <div class="d-flex justify-content-center mb-2">
@@ -79,24 +91,21 @@ switch (props.user.status) {
             <span v-else class="text-danger">Töhmətlər</span>
           </button>
         </div>
-        <HistoryComponent v-if="showHistory" :user-id="user.id"/>
+        <HistoryComponent v-if="showHistory" :user-id="user.id" />
         <ReprimandComponent v-else :reprimands="user.reprimands" />
       </div>
     </div>
   </div>
-
-
 </template>
 
 <style scoped>
 .information-container {
   background-color: #598216;
-  margin: 70px
+  margin: 70px;
 }
 .image {
   width: 300px;
   height: 300px;
-
 }
 img {
   object-fit: contain;
