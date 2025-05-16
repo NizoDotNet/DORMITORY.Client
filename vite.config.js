@@ -1,30 +1,28 @@
-import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from "node:url";
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
 
 // https://vite.dev/config/
 export default defineConfig({
   base: "",
-  plugins: [
-    vue(),
-  ],
+  plugins: [vue()],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
   },
   server: {
-    port: 8080,
+    port: 80,
     host: true, // Here
     strictPort: true,
     proxy: {
-      '/api': {
-        target: 'https://dormitory-api-container:5001',
+      "/api": {
+        target: "http://localhost:5000",
         changeOrigin: true,
         /*rewrite: (path) => path.replace(/^\/api/, ''),*/
-        secure: false
+        secure: false,
       },
     },
   },
-})
+});
