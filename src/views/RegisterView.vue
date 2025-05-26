@@ -212,7 +212,7 @@ watch(dormitoryId, async () => {
               <select v-model="registerData.roomId" class="form-select">
                 <option :value="null">Heç bir otaq</option>
                 <option v-for="room in rooms" :key="room.id" :value="room.id">
-                  {{ room.name }}
+                  {{ room.blockName }} - {{ room.name }}
                 </option>
               </select>
             </div>
