@@ -46,11 +46,7 @@ switch (props.user.status) {
         >
           <div class="" style="margin-end: 20px">
             <div class="image">
-              <img
-                class="image"
-                :src="`http://localhost:5000/api/images/${user.id}`"
-                alt=""
-              />
+              <img class="image" :src="user.imageUrl" alt="" />
             </div>
             <UploadImageComponent :user="user" />
           </div>
