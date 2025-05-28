@@ -1,11 +1,21 @@
-FROM node:18.12.1-alpine as develop-stage
+# Stage 1: Build the Vue application
+FROM node:lts-alpine as builder
+
 WORKDIR /app
+
 COPY package*.json ./
-COPY . .
 RUN npm install
+
+COPY . .
 RUN npm run build
-FROM nginx:alpine as production-build
-COPY ./nginx.conf /etc/nginx/nginx.conf
-RUN rm -rf /usr/share/nginx/html/*
-COPY --from=develop-stage /app/dist /usr/share/nginx/html
+
+# Stage 2: Serve with Nginx
+FROM nginx:stable-alpine as production
+
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+COPY nginx.conf /etc/nginx/nginx.conf
+
 EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
