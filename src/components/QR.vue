@@ -16,5 +16,5 @@ export default {
 };
 </script>
 <template>
-  <qrcode-svg :value="`${url}/users/qr/${id}`" level="M" :size="128" />
+  <qrcode-svg :value="`${url}/#/users/qr/${id}`" level="M" :size="128" />
 </template>
