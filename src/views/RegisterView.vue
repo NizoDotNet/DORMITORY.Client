@@ -18,11 +18,14 @@ const registerData = reactive({
   firstname: "",
   secondname: "",
   phoneNumber: "",
-  roomId: 0,
+  roomId: null,
   fatherName: "",
   specializationId: null,
   course: 0,
   code: "",
+  region: "",
+  address: "",
+  educationForm: 1,
 });
 const confirmPassword = ref("");
 
@@ -192,6 +195,38 @@ watch(dormitoryId, async () => {
             </div>
           </div>
           <div class="col" style="width: 357.484px">
+            <div class="m-3">
+              <label class="form-label">Şəhər/Rayon</label>
+              <input
+                v-model="registerData.region"
+                class="form-control"
+                placeholder="Bərdə"
+              />
+              <span v-if="validations.region" class="text-danger">{{
+                validations.region[0]
+              }}</span>
+            </div>
+            <div class="m-3">
+              <label class="form-label">Address</label>
+              <input
+                v-model="registerData.address"
+                class="form-control"
+                placeholder="I.Eliyev 3-küç"
+              />
+              <span v-if="validations.addresnotempty" class="text-danger">{{
+                validations.addresnotempty[0]
+              }}</span>
+              <span v-if="validations.addresslessthan" class="text-danger">{{
+                validations.addresslessthan[0]
+              }}</span>
+            </div>
+            <div class="m-3">
+              <label for="form-label">Təhsil forması</label>
+              <select v-model="registerData.educationForm" class="form-select">
+                <option value="1">Əyani</option>
+                <option value="2">Qiyabi</option>
+              </select>
+            </div>
             <div class="m-3">
               <label for="form-label">Yataqxana</label>
               <select v-model="dormitoryId" class="form-select">

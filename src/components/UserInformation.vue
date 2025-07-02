@@ -60,6 +60,7 @@ switch (props.user.status) {
             <p>AD: {{ user.firstname }}</p>
             <p>SOYAD: {{ user.secondname }}</p>
             <p>ATA ADI: {{ user.fatherName }}</p>
+            <p>ŞƏHƏR/RAYON: {{ user.region }}</p>
             <p>ŞƏXSİYYƏT VƏSİQƏSİNİN F/K: {{ user.fin }}</p>
             <p>ŞƏXSİYYƏT VƏSİQƏSİNİN S/N: {{ user.passportNo }}</p>
             <p>Email: {{ user.email }}</p>
