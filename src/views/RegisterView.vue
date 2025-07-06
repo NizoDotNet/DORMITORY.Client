@@ -144,6 +144,8 @@ watch(dormitoryId, async () => {
                 v-model="registerData.fin"
                 class="form-control"
                 placeholder="7ABC21O"
+                style="text-transform: uppercase"
+              />
               />
               <span v-if="validations.fin" class="text-danger">{{
                 validations.fin[0]

@@ -16,6 +16,7 @@ const message = ref("");
 
 const login = async () => {
   isLoading.value = true;
+  loginData.fin = loginData.fin.toUpperCase();
   try {
     const res = await axios.post("/api/auth/login", loginData);
     if (res.status === 200) {
@@ -37,20 +38,21 @@ const login = async () => {
     <div class="mb-3">
       <label for="email" class="form-label"></label>
       <input
-          id="fin"
-          autocomplete="fin"
-          v-model="loginData.fin"
-          class="form-control-lg"
-          placeholder="FİN"
+        id="fin"
+        autocomplete="fin"
+        v-model="loginData.fin"
+        class="form-control-lg"
+        placeholder="FİN"
+        style="text-transform: uppercase"
       />
     </div>
     <div class="mb-3">
       <label class="form-label"></label>
       <input
-          v-model="loginData.password"
-          type="password"
-          class="form-control-lg"
-          placeholder="Şifrə"
+        v-model="loginData.password"
+        type="password"
+        class="form-control-lg"
+        placeholder="Şifrə"
       />
     </div>
     <div class="mb-3">
@@ -60,15 +62,15 @@ const login = async () => {
     </div>
     <div class="mb-3">
       <router-link class="text-white" to="/Register"
-      >Qeydiyyat linki</router-link
+        >Qeydiyyat linki</router-link
       >
     </div>
     <div class="">
-      <BeatLoader v-if="isLoading"/>
+      <BeatLoader v-if="isLoading" />
       <button
-          v-else
-          class="p-2 btn text-white btn-block"
-          style="width: 265px; background-color: #215702"
+        v-else
+        class="p-2 btn text-white btn-block"
+        style="width: 265px; background-color: #215702"
       >
         Daxil ol
       </button>
