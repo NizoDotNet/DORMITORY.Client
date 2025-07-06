@@ -146,7 +146,6 @@ watch(dormitoryId, async () => {
                 placeholder="7ABC21O"
                 style="text-transform: uppercase"
               />
-              />
               <span v-if="validations.fin" class="text-danger">{{
                 validations.fin[0]
               }}</span>
