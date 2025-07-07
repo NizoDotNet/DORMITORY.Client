@@ -16,7 +16,6 @@ const message = ref("");
 
 const login = async () => {
   isLoading.value = true;
-  loginData.fin = loginData.fin.toUpperCase();
   try {
     const res = await axios.post("/api/auth/login", loginData);
     if (res.status === 200) {

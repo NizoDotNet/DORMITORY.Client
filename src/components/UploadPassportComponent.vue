@@ -13,7 +13,7 @@ const uploadImage = async () => {
   try {
     const formData = new FormData();
     formData.append("uploadFile", file.value);
-    const res = await axios.post("/api/images", formData, {
+    const res = await axios.post("/api/images/passport", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

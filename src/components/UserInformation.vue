@@ -4,6 +4,7 @@ import ReprimandComponent from "@/components/ReprimandComponent.vue";
 import UploadImageComponent from "@/components/UploadImageComponent.vue";
 import { ref } from "vue";
 import HistoryComponent from "@/components/HistoryComponent.vue";
+import UploadPassportComponent from "./UploadPassportComponent.vue";
 
 const props = defineProps({
   user: Object,
@@ -11,107 +12,120 @@ const props = defineProps({
 
 const showHistory = ref(true);
 
-let color = "white";
+let color = "text-white";
 switch (props.user.status) {
   case "Accepted":
-    color = "white";
+    color = "text-white";
     break;
   case "Pending":
-    color = "yellow";
+    color = "text-warning";
     break;
   default:
-    color = "red";
+    color = "text-danger";
     break;
 }
 </script>
 
 <template>
-  <div class="container p-5">
-    <div class="d-flex justify-content-center align-items-center">
+  <div class="container py-5">
+    <div class="d-flex justify-content-center">
       <div
-        class="p-5 flex-column justify-content-center align-items-center information-container"
-        style=""
+        class="card shadow-lg w-100"
+        style="max-width: 900px; background-color: #598216"
       >
-        <div
-          v-if="user.status === 'Pending'"
-          class="mb-3 d-flex justify-content-start"
-        >
-          <router-link to="/user/update" class="btn btn-light"
-            >Düzənləmə</router-link
-          >
-        </div>
-        <div
-          class="d-flex flex-row justify-content-start"
-          style="margin-bottom: 40px"
-        >
-          <div class="" style="margin-end: 20px">
-            <div class="image">
-              <img class="image" :src="user.imageUrl" alt="" />
-            </div>
-            <UploadImageComponent :user="user" />
+        <div class="card-body p-4">
+          <div v-if="user.status === 'Pending'" class="mb-4 d-flex gap-2">
+            <router-link to="/user/update" class="btn btn-light"
+              >Düzənləmə</router-link
+            >
           </div>
-          <div class="">
-            <QR :id="user.id" />
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col">
-            <p>AD: {{ user.firstname }}</p>
-            <p>SOYAD: {{ user.secondname }}</p>
-            <p>ATA ADI: {{ user.fatherName }}</p>
-            <p>ŞƏHƏR/RAYON: {{ user.region }}</p>
-            <p>ŞƏXSİYYƏT VƏSİQƏSİNİN F/K: {{ user.fin }}</p>
-            <p>ŞƏXSİYYƏT VƏSİQƏSİNİN S/N: {{ user.passportNo }}</p>
-            <p>Email: {{ user.email }}</p>
-            <p>ƏLAQƏ N.: {{ user.phoneNumber }}</p>
+          <div class="row mb-5">
+            <div class="col-md-6 text-center mb-4 mb-md-0">
+              <span class="mb-1">İstifadəçi şəkli</span>
+              <img
+                :src="user.imageUrl"
+                alt="User image"
+                class="img-fluid rounded mb-3"
+                style="max-height: 300px; object-fit: contain"
+              />
+              <UploadImageComponent :user="user" />
+            </div>
+            <div class="col-md-6 text-center mb-4 mb-md-0">
+              <span class="mb-1">Şəxsiyyət Vəsiqəsinin şəkli</span>
+              <img
+                :src="`/img/passport/${user.id}`"
+                alt="User image"
+                class="img-fluid rounded mb-3"
+                style="max-height: 300px; object-fit: contain"
+              />
+              <UploadPassportComponent
+                v-if="user.status === 'Pending'"
+                :user="user"
+              />
+            </div>
+            <div
+              class="col-md-6 d-flex align-items-center justify-content-center"
+            >
+              <QR :id="user.id" />
+            </div>
           </div>
-          <div class="col">
-            <div v-if="user.specialization === null">
-              <p>FAKÜLTƏ: Yoxdur</p>
-              <p>İXTİSAS: Yoxdur</p>
+
+          <div class="row text-white">
+            <div class="col-md-6 mb-4">
+              <p><strong>AD:</strong> {{ user.firstname }}</p>
+              <p><strong>SOYAD:</strong> {{ user.secondname }}</p>
+              <p><strong>ATA ADI:</strong> {{ user.fatherName }}</p>
+              <p><strong>ŞƏHƏR/RAYON:</strong> {{ user.region }}</p>
+              <p><strong>Ş/V FİN:</strong> {{ user.fin }}</p>
+              <p><strong>Ş/V S/N:</strong> {{ user.passportNo }}</p>
+              <p><strong>Email:</strong> {{ user.email }}</p>
+              <p><strong>Əlaqə N:</strong> {{ user.phoneNumber }}</p>
             </div>
-            <div v-else>
-              <p>FAKÜLTƏ: {{ user.specialization.faculty.name }}</p>
-              <p>İXTİSAS: {{ user.specialization.name }}</p>
+            <div class="col-md-6">
+              <template v-if="user.specialization === null">
+                <p><strong>FAKÜLTƏ:</strong> Yoxdur</p>
+                <p><strong>İXTİSAS:</strong> Yoxdur</p>
+              </template>
+              <template v-else>
+                <p>
+                  <strong>FAKÜLTƏ:</strong>
+                  {{ user.specialization.faculty.name }}
+                </p>
+                <p><strong>İXTİSAS:</strong> {{ user.specialization.name }}</p>
+              </template>
+              <p><strong>KURS:</strong> {{ user.course }}</p>
+              <p><strong>KOD:</strong> {{ user.code }}</p>
+              <p><strong>BLOK:</strong> {{ user.block }}</p>
+              <p><strong>OTAQ:</strong> {{ user.room }}</p>
+              <p :class="color"><strong>STATUS:</strong> {{ user.status }}</p>
             </div>
-            <p>KURS: {{ user.course }}</p>
-            <p>KOD: {{ user.code }}</p>
-            <p>BLOK: {{ user.block }}</p>
-            <p>OTAQ: {{ user.room }}</p>
-            <p :style="{ color: color }">STATUS: {{ user.status }}</p>
+          </div>
+
+          <div class="d-flex justify-content-center mt-4">
+            <button
+              @click="showHistory = !showHistory"
+              class="btn btn-outline-light"
+            >
+              <span v-if="showHistory">Tarixçə</span>
+              <span v-else class="text-danger">Töhmətlər</span>
+            </button>
+          </div>
+
+          <div class="mt-3">
+            <HistoryComponent v-if="showHistory" :user-id="user.id" />
+            <ReprimandComponent v-else :reprimands="user.reprimands" />
           </div>
         </div>
-        <div class="d-flex justify-content-center mb-2">
-          <button @click="showHistory = !showHistory" class="btn btn-light">
-            <span v-if="showHistory">Tarixçə</span>
-            <span v-else class="text-danger">Töhmətlər</span>
-          </button>
-        </div>
-        <HistoryComponent v-if="showHistory" :user-id="user.id" />
-        <ReprimandComponent v-else :reprimands="user.reprimands" />
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.information-container {
-  background-color: #598216;
-  margin: 70px;
-}
-.image {
-  width: 300px;
-  height: 300px;
-}
-img {
-  object-fit: contain;
-}
-
 @media (max-width: 650px) {
-  .image {
-    width: 128px;
-    height: 128px;
+  img {
+    max-height: 128px !important;
   }
 }
 </style>

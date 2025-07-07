@@ -251,6 +251,9 @@ watch(dormitoryId, async () => {
                   {{ room.blockName }} - {{ room.name }}
                 </option>
               </select>
+              <span v-if="validations.roomIsNotAvaible" class="text-danger">{{
+                validations.roomIsNotAvaible[0]
+              }}</span>
             </div>
             <div class="m-3">
               <label class="form-label">Ata adı</label>
