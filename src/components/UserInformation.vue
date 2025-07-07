@@ -43,6 +43,7 @@ switch (props.user.status) {
           <div class="row mb-5">
             <div class="col-md-6 text-center mb-4 mb-md-0">
               <strong class="mb-1 text-white">İstifadəçi şəkli</strong>
+              <br />
               <img
                 :src="user.imageUrl"
                 alt="User image"
@@ -52,7 +53,10 @@ switch (props.user.status) {
               <UploadImageComponent :user="user" />
             </div>
             <div class="col-md-6 text-center mb-4 mb-md-0">
-              <strong class="mb-1">Şəxsiyyət Vəsiqəsinin şəkli</strong>
+              <strong class="mb-1 text-white"
+                >Şəxsiyyət Vəsiqəsinin şəkli</strong
+              >
+              <br />
               <img
                 :src="`/img/passport/${user.id}`"
                 alt="User image"
