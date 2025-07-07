@@ -34,15 +34,15 @@ switch (props.user.status) {
         style="max-width: 900px; background-color: #598216"
       >
         <div class="card-body p-4">
-          <div v-if="user.status === 'Pending'" class="mb-4 d-flex gap-2">
+          <!-- <div v-if="user.status === 'Pending'" class="mb-4 d-flex gap-2">
             <router-link to="/user/update" class="btn btn-light"
               >Düzənləmə</router-link
             >
-          </div>
+          </div> -->
 
           <div class="row mb-5">
             <div class="col-md-6 text-center mb-4 mb-md-0">
-              <span class="mb-1">İstifadəçi şəkli</span>
+              <strong class="mb-1 text-white">İstifadəçi şəkli</strong>
               <img
                 :src="user.imageUrl"
                 alt="User image"
@@ -52,7 +52,7 @@ switch (props.user.status) {
               <UploadImageComponent :user="user" />
             </div>
             <div class="col-md-6 text-center mb-4 mb-md-0">
-              <span class="mb-1">Şəxsiyyət Vəsiqəsinin şəkli</span>
+              <strong class="mb-1">Şəxsiyyət Vəsiqəsinin şəkli</strong>
               <img
                 :src="`/img/passport/${user.id}`"
                 alt="User image"
