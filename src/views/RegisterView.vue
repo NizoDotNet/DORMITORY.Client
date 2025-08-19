@@ -53,9 +53,7 @@ onMounted(async () => {
   }
   try {
     const dormitoriesRes = await axios.get("/api/dormitories");
-    if (dormitoriesRes.status === 200) {
-      dormitories.value = dormitoriesRes.data;
-    }
+    dormitories.value = dormitoriesRes.data;
   } catch (error) {
     await router.push("/server-error");
   }
@@ -230,7 +228,11 @@ watch(dormitoryId, async () => {
             </div>
             <div class="m-3">
               <label for="form-label">Yataqxana</label>
-              <select v-model="dormitoryId" class="form-select">
+              <select
+                v-if="dormitories.length >= 0"
+                v-model="dormitoryId"
+                class="form-select"
+              >
                 <option
                   v-for="dormitory in dormitories"
                   :key="dormitory.id"
