@@ -59,6 +59,7 @@ onMounted(async () => {
   }
   await getRooms();
 });
+
 const register = async () => {
   try {
     const res = await axios.post("/api/auth/register", registerData);
@@ -103,6 +104,7 @@ watch(dormitoryId, async () => {
                 type="email"
                 class="form-control"
                 placeholder="name@example.com"
+                @keydown.space.prevent
               />
               <span v-if="validations.email" class="text-danger">{{
                 validations.email[0]
@@ -143,6 +145,7 @@ watch(dormitoryId, async () => {
                 class="form-control"
                 placeholder="7ABC21O"
                 style="text-transform: uppercase"
+                @keydown.space.prevent
               />
               <span v-if="validations.fin" class="text-danger">{{
                 validations.fin[0]
@@ -154,6 +157,7 @@ watch(dormitoryId, async () => {
                 v-model="registerData.passportNo"
                 class="form-control"
                 placeholder="AA3456789"
+                @keydown.space.prevent
               />
               <span v-if="validations.passportNo" class="text-danger">{{
                 validations.passportNo[0]
@@ -321,7 +325,7 @@ watch(dormitoryId, async () => {
             class="p-2 btn text-white btn-block"
             style="width: 265px; background-color: #215702"
           >
-            Dəvam et
+            Davam et
           </button>
         </div>
       </form>

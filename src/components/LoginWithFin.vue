@@ -43,6 +43,7 @@ const login = async () => {
         class="form-control-lg"
         placeholder="FİN"
         style="text-transform: uppercase"
+        @keydown.space.prevent
       />
     </div>
     <div class="mb-3">
