@@ -9,7 +9,7 @@ defineProps({
   <!--  <div class="d-flex justify-content-center">
     <h5 class="text-danger" v-if="reprimands.length > 0">Töhmətlər</h5>
   </div>-->
-  <div v-for="reprimand in reprimands" :key="reprimand.id" class="row">
+  <div v-for="reprimand in reprimands" class="row">
     <hr align="center" color="#dddddd" />
     <div class="text-break">
       <p>TÖHMƏTİN AÇIQLAMASI: {{ reprimand.text }}</p>
@@ -25,4 +25,8 @@ defineProps({
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+p {
+  color: white;
+}
+</style>
