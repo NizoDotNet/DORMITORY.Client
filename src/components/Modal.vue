@@ -5,7 +5,6 @@ import { useModal } from "vue-final-modal";
 const { open, close } = useModal({
   component: ContractModal,
   attrs: {
-    title: "Hello World!",
     onConfirm() {
       close();
     },
