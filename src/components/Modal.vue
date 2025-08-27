@@ -3,7 +3,7 @@ import { ModalsContainer } from "vue-final-modal";
 import ContractModal from "./ContractModal.vue";
 import { useModal } from "vue-final-modal";
 
-const emit = defineEmits("confirm");
+const emit = defineEmits(["confirm"]);
 const { open, close } = useModal({
   component: ContractModal,
   attrs: {
