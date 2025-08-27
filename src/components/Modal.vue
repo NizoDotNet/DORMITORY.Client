@@ -14,7 +14,9 @@ const { open, close } = useModal({
 });
 </script>
 <template>
-  <span @click="open()" class="p-2 text-white text"> Müqaviləni oxudum. </span>
+  <span @click="open()" class="p-2 text"
+    >Müqaviləni diqqətlə oxudum və şərtlərini qəbul edirəm.
+  </span>
   <ModalsContainer />
 </template>
 

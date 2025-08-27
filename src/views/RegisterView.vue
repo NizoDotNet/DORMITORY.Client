@@ -322,18 +322,19 @@ watch(dormitoryId, async () => {
             </div>
           </div>
         </div>
-
-        <div class="justify-content-end d-fles gap-2">
-          <div class="d-flex gap-1">
-            <input v-model="checkedContract" />
-            <Modal @confirm="register" />
-          </div>
-
+        <div class="d-flex gap-1 align-items-center">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            v-model="checkedContract"
+          />
+          <Modal class="mb-1" />
+        </div>
+        <div class="d-flex justify-content-end mb-1">
           <button
-            @click="register()"
+            :disabled="!checkedContract"
             class="p-2 btn text-white btn-block"
             style="width: 265px; background-color: #215702"
-            :disabled="checkedContract"
           >
             Davam et
           </button>
