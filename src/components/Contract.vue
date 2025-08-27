@@ -5,7 +5,7 @@ const { pdf, pages } = usePDF("telebe_evi_muqavile.pdf");
 </script>
 
 <template>
-  <div style="max-height: 100vh" class="overflow-auto p-6">
+  <div class="overflow-auto p-6">
     <VuePDF
       v-for="page in pages"
       :key="page"
