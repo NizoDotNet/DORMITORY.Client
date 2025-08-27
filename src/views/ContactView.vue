@@ -1,10 +1,8 @@
-<script setup>
-import Modal from "@/components/Modal.vue";
-</script>
+<script setup></script>
 
 <template>
   <div class="contact-information-container">
-    <div class="form" style="margin-bottom: 0px">
+    <div class="form">
       <h2 class="text-center">Əlaqə</h2>
       <div class="d-flex justify-content-center">
         <div class="social-media">
@@ -89,16 +87,12 @@ import Modal from "@/components/Modal.vue";
         <img src="../assets/images/logo.png" alt="" height="175px" />
       </div>
     </div>
-    <div style="height: 100px; opacity: 0"></div>
   </div>
 </template>
 
 <style scoped>
 .contact-information-container {
   width: 100%;
-  height: 100vh;
-  margin-top: 40px;
-  margin-bottom: 500px;
 }
 
 .social-media {

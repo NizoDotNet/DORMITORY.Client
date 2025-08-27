@@ -15,7 +15,7 @@ onMounted(async () => {
     <Navbar></Navbar>
     <div
       v-if="store.isLoading"
-      class="loader d-flex min-vh-100 justify-content-center align-items-center"
+      class="loader d-flex justify-content-center align-items-center"
     >
       <PulseLoader class="" />
     </div>
