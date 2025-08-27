@@ -19,7 +19,7 @@ onMounted(async () => {
     >
       <PulseLoader class="" />
     </div>
-    <div v-else>
+    <div v-else style="background-color: #6b911b">
       <router-view></router-view>
     </div>
     <Footer />
