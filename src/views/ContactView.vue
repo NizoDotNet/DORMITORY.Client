@@ -80,7 +80,6 @@ import Modal from "@/components/Modal.vue";
                 >
                   Nizami Məmmədov
                 </a>
-                <Modal />
               </span>
             </li>
           </ul>
