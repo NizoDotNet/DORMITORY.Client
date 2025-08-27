@@ -1,6 +1,8 @@
 <script setup>
 import { VueFinalModal } from "vue-final-modal";
 import Contract from "@/components/Contract.vue";
+
+defineEmits(["close", "confirm"]);
 </script>
 
 <template>
@@ -13,7 +15,12 @@ import Contract from "@/components/Contract.vue";
     <div class="confirm-modal" style="height: 100vh">
       <Contract />
       <a href="/telebe_evi_muqavile.pdf" target="_blank">Müqaviləni yüklə</a>
-      <button class="btn btn-primary">Təsdiq edirəm</button>
+      <div class="d-flex flex-col gap-1">
+        <button @click="$emit('close')" class="btn btn-danger">Bağla</button>
+        <button @click="$emit('confirm')" class="btn btn-primary">
+          Təsdiq edirəm
+        </button>
+      </div>
     </div>
   </VueFinalModal>
 </template>

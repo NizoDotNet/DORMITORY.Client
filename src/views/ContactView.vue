@@ -90,7 +90,7 @@ import Modal from "@/components/Modal.vue";
         <img src="../assets/images/logo.png" alt="" height="175px" />
       </div>
     </div>
-    <div style="height: 100px"></div>
+    <div style="height: 100px; opacity: 0"></div>
   </div>
 </template>
 

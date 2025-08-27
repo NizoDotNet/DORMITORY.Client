@@ -2,6 +2,7 @@
 import { onMounted, reactive, ref, watch } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
+import Modal from "@/components/Modal.vue";
 
 const router = useRouter();
 const dormitoryId = ref(1);
@@ -321,12 +322,7 @@ watch(dormitoryId, async () => {
           </div>
         </div>
         <div class="d-flex justify-content-end mb-1">
-          <button
-            class="p-2 btn text-white btn-block"
-            style="width: 265px; background-color: #215702"
-          >
-            Davam et
-          </button>
+          <Modal @confirm="register" />
         </div>
       </form>
     </div>
