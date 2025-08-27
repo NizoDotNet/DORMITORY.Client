@@ -10,20 +10,22 @@ const { open, close } = useModal({
     onClose() {
       close();
     },
-    onConfirm() {
-      emit("confirm");
-      close();
-    },
   },
 });
 </script>
 <template>
-  <button
-    @click="open()"
-    class="p-2 btn text-white btn-block"
-    style="width: 265px; background-color: #215702"
-  >
-    Davam et
-  </button>
+  <span @click="open()" class="p-2 text-white text"> Müqaviləni oxudum. </span>
   <ModalsContainer />
 </template>
+
+<style scoped>
+.text {
+  color: white;
+  user-select: none;
+  cursor: pointer;
+}
+.text:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+</style>

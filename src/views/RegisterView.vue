@@ -11,6 +11,7 @@ const specializations = ref([]);
 const rooms = ref([]);
 const validations = ref([]);
 const conflict = ref();
+const checkedContract = ref(false);
 const registerData = reactive({
   email: "",
   password: "",
@@ -321,8 +322,21 @@ watch(dormitoryId, async () => {
             </div>
           </div>
         </div>
-        <div class="d-flex justify-content-end mb-1">
-          <Modal @confirm="register" />
+
+        <div class="justify-content-end d-fles gap-2">
+          <div class="d-flex gap-1">
+            <input v-model="checkedContract" />
+            <Modal @confirm="register" />
+          </div>
+
+          <button
+            @click="register()"
+            class="p-2 btn text-white btn-block"
+            style="width: 265px; background-color: #215702"
+            :disabled="checkedContract"
+          >
+            Davam et
+          </button>
         </div>
       </form>
     </div>
