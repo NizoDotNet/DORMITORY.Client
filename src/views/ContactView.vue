@@ -5,6 +5,23 @@
     <div class="form">
       <h2 class="text-center">Əlaqə</h2>
       <div class="d-flex justify-content-center">
+        <div>
+          <ul class="list-inline contact-information">
+            <li>
+              <i class="bi bi-telephone-fill"></i>
+              <span> Telefon nömrəsi: +994 77 328 84 13</span>
+            </li>
+            <li>
+              <i class="bi bi-globe-americas"></i> <span> Veb sayt: </span>
+              <a href="https://adauthik.az/" class="text-white"> adauthik.az</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center bg-white">
+        <img src="../assets/images/thik.png" alt="" height="175px" />
+      </div>
+      <div class="d-flex justify-content-center">
         <div class="social-media">
           <a href="https://www.facebook.com/ADAUASAU" target="_blank">
             <img src="../assets/images/facebook.png" alt="" width="40px" />
@@ -53,39 +70,6 @@
         <img src="../assets/images/ADAU-logo.png" alt="" />
       </div>
       <hr />
-      <h3 class="text-center">Texniki dəstək</h3>
-      <p class="text-center">
-        <i
-          >Əgər saytda hər hansısa problem və ya səhv tapıbsızsa xaiş olunur
-          əlaqə saxlıyarsız.</i
-        >
-      </p>
-      <div class="d-flex justify-content-center">
-        <div>
-          <ul class="list-inline contact-information">
-            <li>
-              <i class="bi bi-envelope-fill"></i>
-              <span> E-mail: mmmdovnizami.official@gmail.com </span>
-            </li>
-            <li>
-              <i class="bi bi-linkedin"></i>
-              <span>
-                LinkedIn:
-                <a
-                  class="text-white"
-                  target="_blank"
-                  href="https://www.linkedin.com/in/nizami-memmedov-8ba611274/"
-                >
-                  Nizami Məmmədov
-                </a>
-              </span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="d-flex justify-content-center">
-        <img src="../assets/images/logo.png" alt="" height="175px" />
-      </div>
     </div>
   </div>
 </template>
