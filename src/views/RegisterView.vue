@@ -73,10 +73,8 @@ const register = async () => {
     if (err.response.status === 400) {
       validations.value = err.response.data.errors;
     } else if (err.response.status === 409) {
-      console.log(err);
       conflict.value = err.response.data.message;
     } else {
-      console.log(err);
     }
   } finally {
   }
@@ -84,6 +82,10 @@ const register = async () => {
 
 watch(dormitoryId, async () => {
   await getRooms();
+});
+
+watch(conflict, () => {
+  console.log(conflict.value);
 });
 </script>
 
@@ -153,9 +155,7 @@ watch(dormitoryId, async () => {
               <span v-if="validations.fin" class="text-danger">{{
                 validations.fin[0]
               }}</span>
-              <span v-if="conflict" class="text-danger">{{
-                conflict.value
-              }}</span>
+              <span v-if="conflict" class="text-danger">{{ conflict }}</span>
             </div>
             <div class="m-3">
               <label class="form-label">Ş/V seriya nömrəsi</label>
