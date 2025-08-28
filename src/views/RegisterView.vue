@@ -20,6 +20,7 @@ const registerData = reactive({
   firstname: "",
   secondname: "",
   phoneNumber: "",
+  parentsPhoneNumber: "",
   roomId: null,
   fatherName: "",
   specializationId: null,
@@ -194,6 +195,14 @@ watch(dormitoryId, async () => {
               <label class="form-label">Telefon nömrəsi</label>
               <input
                 v-model="registerData.phoneNumber"
+                class="form-control"
+                placeholder="+994XX-XXX-XXXX"
+              />
+            </div>
+            <div class="m-3">
+              <label class="form-label">Valideynin nömrəsi</label>
+              <input
+                v-model="registerData.parentsPhoneNumber"
                 class="form-control"
                 placeholder="+994XX-XXX-XXXX"
               />
