@@ -153,6 +153,9 @@ watch(dormitoryId, async () => {
               <span v-if="validations.fin" class="text-danger">{{
                 validations.fin[0]
               }}</span>
+              <span v-if="conflict" class="text-danger">{{
+                conflict.value
+              }}</span>
             </div>
             <div class="m-3">
               <label class="form-label">Ş/V seriya nömrəsi</label>
@@ -319,7 +322,7 @@ watch(dormitoryId, async () => {
               }}</span>
             </div>
             <div class="m-3">
-              <label class="form-label">Kod</label>
+              <label class="form-label">Kod(boş buraxmaq olar)</label>
               <input
                 v-model="registerData.code"
                 class="form-control"

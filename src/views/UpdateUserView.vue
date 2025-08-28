@@ -216,7 +216,7 @@ const updateUser = async () => {
             class="p-2 btn text-white btn-block"
             style="width: 265px; background-color: #215702"
           >
-            Dəvam et
+            Davam et
           </button>
         </div>
       </form>
