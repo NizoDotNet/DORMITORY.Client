@@ -45,7 +45,7 @@ switch (props.user.status) {
               <strong class="mb-1 text-white">İstifadəçi şəkli</strong>
               <br />
               <img
-                :src="user.imageUrl"
+                :src="user.imageUrl + `date=${new Date()}`"
                 alt="User image"
                 class="img-fluid rounded mb-3"
                 style="max-height: 300px; object-fit: contain"
@@ -58,7 +58,7 @@ switch (props.user.status) {
               >
               <br />
               <img
-                :src="`/img/passport/${user.id}`"
+                :src="`/img/passport/${user.id}?date=${new Date()}`"
                 alt="User image"
                 class="img-fluid rounded mb-3"
                 style="max-height: 300px; object-fit: contain"
