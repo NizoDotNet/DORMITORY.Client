@@ -45,7 +45,7 @@ switch (props.user.status) {
               <strong class="mb-1 text-white">İstifadəçi şəkli</strong>
               <br />
               <img
-                :src="user.imageUrl + `timestamp =${Date.now()}`"
+                :src="user.imageUrl + `?timestamp =${Date.now()}`"
                 alt="User image"
                 class="img-fluid rounded mb-3"
                 style="max-height: 300px; object-fit: contain"
