@@ -31,7 +31,7 @@ onMounted(() => {
     <div class="d-flex flex-column align-items-center gap-1 border-top">
       <strong class="text-center">Sağlamlıq kağızı</strong>
       <img
-        :src="`/img/check/${userStore.user.id}?timestamp =${Date.now()}`"
+        :src="`/img/helth/${userStore.user.id}?timestamp =${Date.now()}`"
         alt="User image"
         class="img-fluid rounded mb-3"
         style="max-height: 300px; object-fit: contain"
