@@ -2,9 +2,11 @@
 import axios from "axios";
 import { ref } from "vue";
 import { UserStore } from "@/stores/UserStore.js";
-
-defineProps({
+import { uploadImageUtil } from "@/utils/uploadImage";
+const url = defineProps({
   user: Object,
+  url: String,
+  show: Boolean,
 });
 const userStore = UserStore();
 const file = ref(null);
@@ -12,7 +14,7 @@ const file = ref(null);
 const uploadImage = async () => {
   userStore.isLoading = true;
   try {
-    await uploadImageUtil(file, "/api/images");
+    await uploadImageUtil(file, props.url);
   } catch (er) {
     if (er.response.status === 400) {
       if (Object.hasOwn(er.response.data, "Length")) {
@@ -36,7 +38,7 @@ const onFileChanged = ($event) => {
 </script>
 
 <template>
-  <div v-if="userStore.user.id === user.id">
+  <div v-if="show">
     <input
       ref="fileInput"
       @change="onFileChanged($event)"

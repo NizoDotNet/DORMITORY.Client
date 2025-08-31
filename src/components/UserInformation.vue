@@ -5,11 +5,13 @@ import UploadImageComponent from "@/components/UploadImageComponent.vue";
 import { ref } from "vue";
 import HistoryComponent from "@/components/HistoryComponent.vue";
 import UploadPassportComponent from "./UploadPassportComponent.vue";
+import UploadComponent from "./UploadComponent.vue";
+import { UserStore } from "@/stores/UserStore";
 
 const props = defineProps({
   user: Object,
 });
-
+const userStore = UserStore();
 const showHistory = ref(true);
 
 let color = "text-white";
@@ -50,7 +52,11 @@ switch (props.user.status) {
                 class="img-fluid rounded mb-3"
                 style="max-height: 300px; object-fit: contain"
               />
-              <UploadImageComponent :user="user" />
+              <UploadComponent
+                :user="user"
+                :show="user?.id === userStore.user.id"
+                url="/api/images"
+              />
             </div>
             <div class="col-md-6 text-center mb-4 mb-md-0">
               <strong class="mb-1 text-white"
@@ -63,9 +69,11 @@ switch (props.user.status) {
                 class="img-fluid rounded mb-3"
                 style="max-height: 300px; object-fit: contain"
               />
-              <UploadPassportComponent
+              <UploadComponent
                 v-if="user.status === 'Pending'"
                 :user="user"
+                :show="user?.id === userStore.user.id"
+                url="/api/images/passport"
               />
             </div>
             <div
