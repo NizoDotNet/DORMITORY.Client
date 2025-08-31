@@ -1,5 +1,4 @@
 <script setup>
-import axios from "axios";
 import { ref } from "vue";
 import { UserStore } from "@/stores/UserStore.js";
 import { uploadImageUtil } from "@/utils/uploadImage";
