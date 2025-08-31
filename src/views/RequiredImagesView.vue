@@ -1,16 +1,7 @@
 <script setup>
 import UploadComponent from "@/components/UploadComponent.vue";
 import { UserStore } from "@/stores/UserStore";
-import { onBeforeMount, onMounted } from "vue";
-import { useRouter } from "vue-router";
 const userStore = UserStore();
-const router = useRouter();
-
-onMounted(() => {
-  if (!userStore.isAuthenticated) {
-    router.push("/login");
-  }
-});
 </script>
 
 <template>
