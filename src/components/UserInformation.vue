@@ -53,7 +53,6 @@ switch (props.user.status) {
                 style="max-height: 300px; object-fit: contain"
               />
               <UploadComponent
-                :user="user"
                 :show="user?.id === userStore.user.id"
                 url="/api/images"
               />
@@ -71,7 +70,6 @@ switch (props.user.status) {
               />
               <UploadComponent
                 v-if="user.status === 'Pending'"
-                :user="user"
                 :show="user?.id === userStore.user.id"
                 url="/api/images/passport"
               />
