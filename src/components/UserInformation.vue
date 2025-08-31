@@ -1,10 +1,8 @@
 <script setup>
 import QR from "@/components/QR.vue";
 import ReprimandComponent from "@/components/ReprimandComponent.vue";
-import UploadImageComponent from "@/components/UploadImageComponent.vue";
 import { ref } from "vue";
 import HistoryComponent from "@/components/HistoryComponent.vue";
-import UploadPassportComponent from "./UploadPassportComponent.vue";
 import UploadComponent from "./UploadComponent.vue";
 import { UserStore } from "@/stores/UserStore";
 

@@ -14,6 +14,7 @@ import ContactView from "@/views/ContactView.vue";
 import UsersView from "@/views/UsersView.vue";
 import UserIdViewFromQr from "@/views/UserIdViewFromQr.vue";
 import UpdateUserView from "@/views/UpdateUserView.vue";
+import RequiredImagesView from "@/views/RequiredImagesView.vue";
 const routes = [
   { path: "/", component: HomeView },
   { path: "/login", component: LoginView },
@@ -25,6 +26,7 @@ const routes = [
   { path: "/server-error", component: ServerErrorView },
   { path: "/contact", component: ContactView },
   { path: "/users", component: UsersView },
+  { path: "/required-images", component: RequiredImagesView },
 ];
 
 export default createRouter({
