@@ -2,6 +2,7 @@
 import axios from "axios";
 import { ref } from "vue";
 import { UserStore } from "@/stores/UserStore.js";
+import { uploadImageUtil } from "@/utils/uploadImage";
 
 defineProps({
   user: Object,
@@ -12,16 +13,7 @@ const file = ref(null);
 const uploadImage = async () => {
   userStore.isLoading = true;
   try {
-    const formData = new FormData();
-    formData.append("uploadFile", file.value);
-    const res = await axios.post("/api/images/passport", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-    if (res.status === 200) {
-      window.location.reload();
-    }
+    await uploadImageUtil(file, "/api/images/passport");
   } catch (er) {
     if (er.response.status === 400) {
       if (Object.hasOwn(er.response.data, "Length")) {
@@ -31,8 +23,9 @@ const uploadImage = async () => {
         alert(er.response.data.ContentTypeg[0]);
       }
     }
+  } finally {
+    userStore.isLoading = false;
   }
-  userStore.isLoading = false;
 };
 
 const onFileChanged = ($event) => {

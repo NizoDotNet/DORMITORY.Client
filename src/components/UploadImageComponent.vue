@@ -12,16 +12,7 @@ const file = ref(null);
 const uploadImage = async () => {
   userStore.isLoading = true;
   try {
-    const formData = new FormData();
-    formData.append("uploadFile", file.value);
-    const res = await axios.post("/api/images", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-    if (res.status === 200) {
-      window.location.reload();
-    }
+    await uploadImageUtil(file, "/api/images");
   } catch (er) {
     if (er.response.status === 400) {
       if (Object.hasOwn(er.response.data, "Length")) {
