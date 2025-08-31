@@ -10,6 +10,7 @@ const userStore = UserStore();
 const file = ref(null);
 
 const uploadImage = async () => {
+  userStore.isLoading = true;
   try {
     const formData = new FormData();
     formData.append("uploadFile", file.value);
@@ -30,6 +31,8 @@ const uploadImage = async () => {
         alert(er.response.data.ContentTypeg[0]);
       }
     }
+  } finally {
+    userStore.isLoading = false;
   }
 };
 
