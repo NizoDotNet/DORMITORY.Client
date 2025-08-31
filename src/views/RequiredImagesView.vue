@@ -1,12 +1,12 @@
 <script setup>
 import UploadComponent from "@/components/UploadComponent.vue";
 import { UserStore } from "@/stores/UserStore";
-import { onBeforeMount } from "vue";
+import { onBeforeMount, onMounted } from "vue";
 import { useRouter } from "vue-router";
 const userStore = UserStore();
 const router = useRouter();
 
-onBeforeMount(() => {
+onMounted(() => {
   if (!userStore.isAuthenticated) {
     router.push("/login");
   }
@@ -18,7 +18,7 @@ onBeforeMount(() => {
     <div class="d-flex flex-column align-items-center gap-1">
       <strong class="text-center">Çek şəkli</strong>
       <img
-        :src="`/img/check/${user.id}?timestamp =${Date.now()}`"
+        :src="`/img/check/${userStore.user.id}?timestamp =${Date.now()}`"
         alt="User image"
         class="img-fluid rounded mb-3"
         style="max-height: 300px; object-fit: contain"
@@ -31,7 +31,7 @@ onBeforeMount(() => {
     <div class="d-flex flex-column align-items-center gap-1 border-top">
       <strong class="text-center">Sağlamlıq kağızı</strong>
       <img
-        :src="`/img/check/${user.id}?timestamp =${Date.now()}`"
+        :src="`/img/check/${userStore.user.id}?timestamp =${Date.now()}`"
         alt="User image"
         class="img-fluid rounded mb-3"
         style="max-height: 300px; object-fit: contain"
@@ -46,7 +46,7 @@ onBeforeMount(() => {
         >Narkoloji dispanserdə qeydiyyatda olmadığına dair arayış</strong
       >
       <img
-        :src="`/img/drug-test/${user.id}?timestamp =${Date.now()}`"
+        :src="`/img/drug-test/${userStore.user.id}?timestamp =${Date.now()}`"
         alt="User image"
         class="img-fluid rounded mb-3"
         style="max-height: 300px; object-fit: contain"

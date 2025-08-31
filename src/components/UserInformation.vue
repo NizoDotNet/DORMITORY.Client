@@ -78,7 +78,14 @@ switch (props.user.status) {
               <QR :id="user.id" />
             </div>
           </div>
-
+          <div
+            class="row"
+            v-if="userStore.user.id == user?.id && user.status === 'Accepted'"
+          >
+            <router-link to="/required-images"
+              >Digər şəkilləri yüklə</router-link
+            >
+          </div>
           <div class="row text-white">
             <div class="col-md-6 mb-4">
               <p><strong>AD:</strong> {{ user.firstname }}</p>
