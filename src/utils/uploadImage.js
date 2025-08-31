@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const uploadImageUtil = async (file, url) => {
   const formData = new FormData();
   formData.append("uploadFile", file.value);
@@ -8,9 +10,5 @@ export const uploadImageUtil = async (file, url) => {
   });
   if (res.status === 200) {
     window.location.reload();
-  }
-  try {
-  } catch (er) {
-  } finally {
   }
 };

@@ -14,12 +14,15 @@ onMounted(async () => {
   <div class="main">
     <Navbar></Navbar>
     <div
-      v-if="store.isLoading"
-      class="loader d-flex justify-content-center align-items-center"
+      :class="[store.isLoading ? 'd-flex' : 'd-none']"
+      class="loader justify-content-center align-items-center"
     >
       <PulseLoader class="" />
     </div>
-    <div v-else style="background-color: #6b911b">
+    <div
+      :class="[!store.isLoading ? '' : 'd-none']"
+      style="background-color: #6b911b"
+    >
       <router-view></router-view>
     </div>
     <Footer />
