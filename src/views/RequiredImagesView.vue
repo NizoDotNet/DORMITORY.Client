@@ -7,7 +7,7 @@ const userStore = UserStore();
 <template>
   <div class="container d-flex flex-column align-items-center p-5 gap-4">
     <div class="d-flex flex-column align-items-center gap-1">
-      <strong class="text-center">Çek şəkli</strong>
+      <strong class="text-center">Qəbz şəkli</strong>
       <img
         :src="`/img/check/${userStore.user.id}?timestamp =${Date.now()}`"
         alt="User image"
@@ -20,7 +20,9 @@ const userStore = UserStore();
       />
     </div>
     <div class="d-flex flex-column align-items-center gap-1 border-top">
-      <strong class="text-center">Sağlamlıq kağızı</strong>
+      <strong class="text-center"
+        >Sağlamlıq kağızı(yalnız 1-ci kurslar üçün)</strong
+      >
       <img
         :src="`/img/helth/${userStore.user.id}?timestamp =${Date.now()}`"
         alt="User image"
