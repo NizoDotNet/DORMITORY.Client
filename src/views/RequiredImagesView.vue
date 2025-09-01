@@ -35,9 +35,7 @@ const userStore = UserStore();
       />
     </div>
     <div class="d-flex flex-column align-items-center gap-1 border-top">
-      <strong class="text-center"
-        >Narkoloji dispanserdə qeydiyyatda olmadığına dair arayış</strong
-      >
+      <strong class="text-center">Narkoloji testin nəticəsi</strong>
       <img
         :src="`/img/drug-test/${userStore.user.id}?timestamp =${Date.now()}`"
         alt="User image"
