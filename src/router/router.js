@@ -23,7 +23,7 @@ const routes = [
   { path: "/user/update", component: UpdateUserView },
   { path: "/users/:id", component: UserIdView, name: "User" },
   { path: "/users/qr/:id", component: UserIdViewFromQr },
-  { path: "/register", component: RegistrationCLosedView },
+  { path: "/register", component: RegisterView },
   { path: "/server-error", component: ServerErrorView },
   { path: "/contact", component: ContactView },
   { path: "/users", component: UsersView },
