@@ -15,6 +15,7 @@ import UsersView from "@/views/UsersView.vue";
 import UserIdViewFromQr from "@/views/UserIdViewFromQr.vue";
 import UpdateUserView from "@/views/UpdateUserView.vue";
 import RequiredImagesView from "@/views/RequiredImagesView.vue";
+import RegistrationCLosedView from "@/views/RegistrationCLosedView.vue";
 const routes = [
   { path: "/", component: HomeView },
   { path: "/login", component: LoginView },
@@ -22,7 +23,7 @@ const routes = [
   { path: "/user/update", component: UpdateUserView },
   { path: "/users/:id", component: UserIdView, name: "User" },
   { path: "/users/qr/:id", component: UserIdViewFromQr },
-  { path: "/register", component: RegisterView },
+  { path: "/register", component: RegistrationCLosedView },
   { path: "/server-error", component: ServerErrorView },
   { path: "/contact", component: ContactView },
   { path: "/users", component: UsersView },
